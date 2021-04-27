@@ -18,6 +18,10 @@ class AcademyViewModelTest {
     fun getCourses() {
         val courseEntities = viewModel.getCourses()
         assertNotNull(courseEntities)
-        assertEquals(5, courseEntities.size) //menguji AcademyViewModel dengan cara membandingkan ukuran dari array viewModel.getCourses().
+
+        /**
+         * menguji AcademyViewModel dengan cara membandingkan ukuran dari array viewModel.getCourses().
+         * */
+        assertEquals(5, courseEntities.size)
     }
 }
