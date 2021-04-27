@@ -9,14 +9,24 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.dicoding.auliarosyida.academy.R
 import com.dicoding.auliarosyida.academy.utils.DataDummy
-import junit.framework.TestCase
 import org.junit.Rule
 import org.junit.Test
 
+/**
+ * Anda menggunakan Espresso dalam melakukan Instrumental Testing, berikut adalah 3 komponen utamanya:
+ *
+ * ViewMatchers (onView(ViewMatcher)): untuk menemukan elemen atau komponen antarmuka yang diuji.
+ * ViewActions (perform(ViewAction)): untuk memberikan event untuk melakukan sebuah aksi pada komponen antarmuka yang diuji.
+ * ViewAssertions: sebuah kondisi atau state dari komponen yang diuji.
+ * */
 class HomeActivityTest {
 
     private val dummyCourse = DataDummy.generateDummyCourses()
 
+    /**
+     * Fungsi dari ActivityScenarioRule yaitu untuk menjalankan Activity tertentu sebelum pengujian dimulai
+     * dan ditutup setelah pengujian. Dalam hal ini, activity yang dijalankan yaitu HomeActivity
+     * */
     @get:Rule
     var activityRule = ActivityScenarioRule(HomeActivity::class.java)
 
@@ -28,7 +38,14 @@ class HomeActivityTest {
 
     @Test
     fun loadDetailCourse() {
+        // kode RecyclerViewActions yang digunakan untuk pengujian pada RecyclerView seperti scroll ke posisi tertentu dan klik pada posisi tertentu.
+        // hasil penambahan library espresso-contrib
+        /**
+         *  ketika Anda membuat sebuah fitur, Anda perlu menyiapkan skenario pengujian untuk menguji fitur tersebut.
+         *  Karena jika tidak, Aplikasi yang Anda buat bisa saja menyimpan eror atau bug yang tidak Anda ketahui.
+         * */
         onView(withId(R.id.rv_academy)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
         onView(withId(R.id.text_title)).check(matches(isDisplayed()))
         onView(withId(R.id.text_title)).check(matches(withText(dummyCourse[0].title)))
         onView(withId(R.id.text_date)).check(matches(isDisplayed()))
