@@ -37,8 +37,9 @@ class ModuleContentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
+            //Fragment akan menggunakan ViewModel yang ada pada Activity (shared ViewModel).
+            // Jika Anda ganti requireActivity() dengan this, maka Fragment tidak akan mengambil ViewModel dari Activity tetapi akan membuat ViewModel baru.
             val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[CourseReaderViewModel::class.java]
-            //Jika Anda ganti requireActivity() dengan this, maka Fragment tidak akan mengambil ViewModel dari Activity tetapi akan membuat ViewModel baru.
 
             val module = viewModel.getSelectedModule() /**
             Mengapa ModuleContentFragment bisa langsung tahu ModuleEntity?
