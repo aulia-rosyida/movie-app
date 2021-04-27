@@ -5,22 +5,21 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.auliarosyida.academy.R
+import com.dicoding.auliarosyida.academy.databinding.ActivityDetailCourseBinding
+import com.dicoding.auliarosyida.academy.databinding.ContentDetailCourseBinding
 
 class DetailCourseActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_COURSE = "extra_course"
-    }
+    private lateinit var detailContentBinding: ContentDetailCourseBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_course)
-        setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val activityDetailCourseBinding = ActivityDetailCourseBinding.inflate(layoutInflater)
+        detailContentBinding = activityDetailCourseBinding.detailContent
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+        setContentView(activityDetailCourseBinding.root)
+
+        setSupportActionBar(activityDetailCourseBinding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }
