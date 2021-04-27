@@ -12,7 +12,12 @@
         <activity
             android:name=".DetailCourseActivity"
             android:label="@string/title_activity_detail_course"
-            android:theme="@style/Theme.Academy.NoActionBar"></activity>
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Theme.Academy.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
         <activity android:name=".CourseReaderActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
