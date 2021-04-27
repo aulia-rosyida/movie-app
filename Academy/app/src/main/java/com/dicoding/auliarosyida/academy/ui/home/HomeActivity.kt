@@ -5,6 +5,9 @@ import android.os.Bundle
 import com.dicoding.auliarosyida.academy.R
 import com.dicoding.auliarosyida.academy.databinding.ActivityHomeBinding
 
+/**
+ * HomeActivity: Menampilkan 2 Fragment (AcademyFragment dan BookmarkFragment) dan sebagai halaman utama dari Aplikasi.
+ * */
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

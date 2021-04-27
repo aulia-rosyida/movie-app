@@ -6,6 +6,10 @@ import com.dicoding.auliarosyida.academy.R
 import com.dicoding.auliarosyida.academy.ui.reader.content.ModuleContentFragment
 import com.dicoding.auliarosyida.academy.ui.reader.list.ModuleListFragment
 
+/**
+ * CourseReader: Menampilkan 2 Fragment(ModuleListFragment dan ModuleContentFragment)
+ * dan di Activity ini nanti akan ada 2 tampilan yakni untuk ukuran layar yang besar dan kecil.
+ * */
 class CourseReaderActivity : AppCompatActivity(), CourseReaderCallback {
 
     companion object {

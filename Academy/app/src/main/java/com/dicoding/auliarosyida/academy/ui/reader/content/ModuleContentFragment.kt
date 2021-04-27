@@ -9,6 +9,9 @@ import com.dicoding.auliarosyida.academy.R
 import com.dicoding.auliarosyida.academy.data.ContentEntity
 import com.dicoding.auliarosyida.academy.databinding.FragmentModuleContentBinding
 
+/**
+ * ModuleContentFragment: Menampilkan Content dari Module yang dipilih
+ * */
 class ModuleContentFragment : Fragment() {
 
     companion object {

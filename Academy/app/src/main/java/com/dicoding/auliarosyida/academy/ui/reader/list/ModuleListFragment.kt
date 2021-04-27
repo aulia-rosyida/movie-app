@@ -8,13 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.auliarosyida.academy.R
 import com.dicoding.auliarosyida.academy.data.ModuleEntity
 import com.dicoding.auliarosyida.academy.databinding.FragmentModuleListBinding
 import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderActivity
 import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderCallback
 import com.dicoding.auliarosyida.academy.utils.DataDummy
 
+/**
+ * ModuleListFragment: Digunakan untuk menampilkan semua Module sesuai Course yang dipilih.
+ * */
 class ModuleListFragment : Fragment() , MyAdapterClickListener {
 
     companion object {

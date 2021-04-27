@@ -17,6 +17,10 @@ import com.dicoding.auliarosyida.academy.databinding.ContentDetailCourseBinding
 import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderActivity
 import com.dicoding.auliarosyida.academy.utils.DataDummy
 
+/**
+ * DetailCourseActivity: Menampilkan detail Course dan menampilkan list Module yang ada tiap Course-nya.
+ * Selain itu di halaman ini juga nantinya akan ada tombol bookmark untuk menyimpan course yang Anda suka.
+ * */
 class DetailCourseActivity : AppCompatActivity() {
 
     private lateinit var detailContentBinding: ContentDetailCourseBinding

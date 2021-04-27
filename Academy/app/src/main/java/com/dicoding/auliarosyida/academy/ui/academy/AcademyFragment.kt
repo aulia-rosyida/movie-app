@@ -12,6 +12,9 @@ import com.dicoding.auliarosyida.academy.R
 import com.dicoding.auliarosyida.academy.databinding.FragmentAcademyBinding
 import com.dicoding.auliarosyida.academy.utils.DataDummy
 
+/**
+ * AcademyFragment: Digunakan untuk menampilkan semua Course.
+ * */
 class AcademyFragment : Fragment() {
 
     private lateinit var fragmentAcademyBinding: FragmentAcademyBinding

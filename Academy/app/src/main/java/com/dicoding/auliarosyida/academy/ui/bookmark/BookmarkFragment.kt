@@ -14,6 +14,9 @@ import com.dicoding.auliarosyida.academy.data.CourseEntity
 import com.dicoding.auliarosyida.academy.databinding.FragmentBookmarkBinding
 import com.dicoding.auliarosyida.academy.utils.DataDummy
 
+/**
+ * BookmarkFragment: Digunakan untuk menampilkan semua Course yang sudah Anda bookmark.
+ * */
 class BookmarkFragment : Fragment(), BookmarkFragmentCallback {
 
     lateinit var fragmentBookmarkBinding: FragmentBookmarkBinding
