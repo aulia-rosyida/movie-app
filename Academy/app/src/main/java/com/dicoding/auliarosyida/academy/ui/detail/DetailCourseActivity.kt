@@ -12,6 +12,10 @@ class DetailCourseActivity : AppCompatActivity() {
 
     private lateinit var detailContentBinding: ContentDetailCourseBinding
 
+    companion object {
+        const val EXTRA_COURSE = "extra_course"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val activityDetailCourseBinding = ActivityDetailCourseBinding.inflate(layoutInflater)
