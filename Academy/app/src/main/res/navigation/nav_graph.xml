@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.dicoding.auliarosyida.academy.AcademyFragment"
+        android:name="com.dicoding.auliarosyida.academy.ui.academy.AcademyFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_academy">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.dicoding.auliarosyida.academy.BookmarkFragment"
+        android:name="com.dicoding.auliarosyida.academy.ui.bookmark.BookmarkFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_bookmark">
 

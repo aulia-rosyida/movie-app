@@ -1,7 +1,8 @@
-package com.dicoding.auliarosyida.academy
+package com.dicoding.auliarosyida.academy.ui.reader
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dicoding.auliarosyida.academy.R
 
 class CourseReaderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

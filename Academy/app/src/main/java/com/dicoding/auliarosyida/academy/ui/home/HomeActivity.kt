@@ -1,7 +1,8 @@
-package com.dicoding.auliarosyida.academy
+package com.dicoding.auliarosyida.academy.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dicoding.auliarosyida.academy.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
