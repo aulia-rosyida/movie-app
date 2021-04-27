@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.dicoding.auliarosyida.academy.R
 import com.dicoding.auliarosyida.academy.data.ContentEntity
+import com.dicoding.auliarosyida.academy.data.ModuleEntity
 import com.dicoding.auliarosyida.academy.databinding.FragmentModuleContentBinding
+import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderViewModel
 
 /**
  * ModuleContentFragment: Menampilkan Content dari Module yang dipilih
@@ -32,13 +35,23 @@ class ModuleContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         if (activity != null) {
-            val content = ContentEntity("<h3 class=\\\"fr-text-bordered\\\">Contoh Content</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>")
-            populateWebView(content)
+            val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[CourseReaderViewModel::class.java]
+            //Jika Anda ganti requireActivity() dengan this, maka Fragment tidak akan mengambil ViewModel dari Activity tetapi akan membuat ViewModel baru.
+
+            val module = viewModel.getSelectedModule() /**
+            Mengapa ModuleContentFragment bisa langsung tahu ModuleEntity?
+            Jika Anda lihat, tidak ada masukan courseId dan moduleId.
+            Hal ini bisa terjadi karena courseId sudah dimasukkan di CourseReaderActivity dan moduleId dimasukkan di ModuleListFragment.
+
+            Inilah yang disebut share ViewModel, membagikan ViewModel ke kelas lain.
+             */
+            populateWebView(module)
         }
     }
 
-    private fun populateWebView(content: ContentEntity) {
-        fragmentModuleContentBinding.webView.loadData(content.content ?: "", "text/html", "UTF-8")
+    private fun populateWebView(module: ModuleEntity) {
+        fragmentModuleContentBinding.webView.loadData(module.contentEntity?.content ?: "", "text/html", "UTF-8")
     }
 }
