@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Academy">
+        <activity
+            android:name=".DetailCourseActivity"
+            android:label="@string/title_activity_detail_course"
+            android:theme="@style/Theme.Academy.NoActionBar"></activity>
+        <activity android:name=".CourseReaderActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
