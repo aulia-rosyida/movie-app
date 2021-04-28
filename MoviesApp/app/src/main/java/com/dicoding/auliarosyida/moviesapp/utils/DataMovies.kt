@@ -101,4 +101,122 @@ object DataMovies {
             }
             return list
         }
+
+    private val tvShowPosters = intArrayOf(R.drawable.poster_naruto_shipudden,
+        R.drawable.poster_fairytail,
+        R.drawable.poster_the_simpson,
+        R.drawable.poster_the_umbrella,
+        R.drawable.poster_grey_anatomy,
+        R.drawable.poster_gotham,
+        R.drawable.poster_riverdale,
+        R.drawable.poster_arrow,
+        R.drawable.poster_doom_patrol,
+        R.drawable.poster_iron_fist)
+
+    private val tvShowTitles = arrayOf("Naruto Shippūden",
+        "Fairy Tail",
+        "The Simpsons",
+        "The Umbrella Academy",
+        "Grey's Anatomy",
+        "Gotham",
+        "Riverdale",
+        "Arrow",
+        "Doom Patrol",
+        "Marvel's Iron Fist")
+
+    private val tvShowQuotes = arrayOf("Naruto Shippūden",
+        "Fairy Tail",
+        "On your marks, get set, d'oh!",
+        "Super. Dysfunctional. Family.",
+        "The life you save may be your own.",
+        "Before Batman, there was Gotham.",
+        "Small town. Big secrets.",
+        "Heroes fall. Legends rise.",
+        "Doom Patrol",
+        "Marvel's Iron Fist")
+
+    private val tvShowOverviews = arrayOf("Naruto Shippuuden is the continuation of the original animated TV series Naruto.The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as He has amassed a few (more dangerous) enemies, in the likes of the shinobi organization; Akatsuki.",
+        "Lucy is a 17-year-old girl, who wants to be a full-fledged mage. One day when visiting Harujion Town, she meets Natsu, a young man who gets sick easily by any type of transportation. But Natsu isn't just any ordinary kid, he's a member of one of the world's most infamous mage guilds: Fairy Tail.",
+        "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+        "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+        "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+        "Everyone knows the name Commissioner Gordon. He is one of the crime world's greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon's story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world's most iconic villains? And what circumstances created them – the larger-than-life personas who would become Catwoman, The Penguin, The Riddler, Two-Face and The Joker?",
+        "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
+        "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
+        "The Doom Patrol’s members each suffered horrible accidents that gave them superhuman abilities — but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence — and to protect Earth from what they find.",
+        "Danny Rand resurfaces 15 years after being presumed dead. Now, with the power of the Iron Fist, he seeks to reclaim his past and fulfill his destiny.")
+
+    private val tvShowReleaseYears = arrayOf("2007",
+        "2009",
+        "1989",
+        "2019",
+        "2005",
+        "2014",
+        "2017",
+        "2012",
+        "2019",
+        "2017")
+
+    private val tvShowGenres = arrayOf("Animation, Action & Adventure, Sci-Fi & Fantasy",
+        "Action & Adventure, Animation, Comedy, Sci-Fi & Fantasy, Mystery",
+        "Family, Animation, Comedy",
+        "Action & Adventure, Sci-Fi & Fantasy, Drama",
+        "Drama",
+        "Drama, Crime, Sci-Fi & Fantasy",
+        "Mystery, Drama, Crime",
+        "Crime, Drama, Mystery, Action & Adventure",
+        "Sci-Fi & Fantasy, Comedy, Drama",
+        "Action & Adventure, Drama, Sci-Fi & Fantasy")
+
+    private val tvShowDurations = arrayOf("25m",
+        "25m",
+        "22m",
+        "55m",
+        "43m",
+        "43m",
+        "45m",
+        "42m",
+        "49m",
+        "55m")
+
+    private val tvShowStatus = arrayOf("Ended",
+        "Ended",
+        "Returning Series",
+        "Returning Series",
+        "Returning Series",
+        "Ended",
+        "Returning Series",
+        "Ended",
+        "Returning Series",
+        "Canceled")
+
+    private val tvShowOriginalLanguages = arrayOf("Japanese",
+        "Japanese",
+        "English",
+        "English",
+        "English",
+        "English",
+        "English",
+        "English",
+        "English",
+        "English")
+
+    val listTvShowData: ArrayList<MovieEntity>
+        get() {
+            val list = arrayListOf<MovieEntity>()
+            for (position in tvShowPosters.indices) {
+                val tvshow = MovieEntity()
+                tvshow.poster = tvShowPosters[position]
+                tvshow.title = tvShowTitles[position]
+                tvshow.quote = tvShowQuotes[position]
+                tvshow.overview = tvShowOverviews[position]
+                tvshow.releaseYear = tvShowReleaseYears[position]
+                tvshow.genre = tvShowGenres[position]
+                tvshow.duration = tvShowDurations[position]
+                tvshow.status = tvShowStatus[position]
+                tvshow.originalLanguage = tvShowOriginalLanguages[position]
+                list.add(tvshow)
+            }
+            return list
+        }
 }
