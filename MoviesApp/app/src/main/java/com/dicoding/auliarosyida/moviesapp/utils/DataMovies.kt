@@ -5,7 +5,7 @@ import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
 
 object DataMovies {
 
-    private val veggieNames = arrayOf("Beet",
+    private val movieNames = arrayOf("Beet",
         "Bell Pepper",
         "Broccoli",
         "Carrot",
