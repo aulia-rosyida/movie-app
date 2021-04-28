@@ -1,4 +1,4 @@
-package com.dicoding.auliarosyida.moviesapp.tvshowtab
+package com.dicoding.auliarosyida.moviesapp.ui.movietab
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import com.dicoding.auliarosyida.moviesapp.R
 
-class TvShowFragment : Fragment() {
+class MovieFragment : Fragment() {
 
     companion object {
-        fun newInstance() = TvShowFragment()
+        fun newInstance() = MovieFragment()
     }
 
-    private lateinit var viewModel: TvShowViewModel
+    private lateinit var viewModel: MovieViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.tv_show_fragment, container, false)
+        return inflater.inflate(R.layout.movie_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(TvShowViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

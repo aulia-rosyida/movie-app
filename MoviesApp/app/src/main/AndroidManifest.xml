@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoviesApp">
 
-        <activity android:name=".DetailActivity"
+        <activity android:name=".ui.DetailActivity"
             android:label="@string/title_activity_detail_movie"
-            android:parentActivityName=".LandingActivity">
+            android:parentActivityName=".ui.LandingActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LandingActivity" />
+                android:value=".ui.LandingActivity" />
         </activity>
 
-        <activity android:name=".LandingActivity">
+        <activity android:name=".ui.LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

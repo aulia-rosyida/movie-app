@@ -1,4 +1,4 @@
-package com.dicoding.auliarosyida.moviesapp.tvshowtab
+package com.dicoding.auliarosyida.moviesapp.ui.tvshowtab
 
 import androidx.lifecycle.ViewModel
 
