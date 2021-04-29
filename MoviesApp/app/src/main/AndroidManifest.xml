@@ -16,7 +16,8 @@
 
         <activity android:name=".ui.DetailActivity"
             android:label="@string/title_activity_detail_movie"
-            android:parentActivityName=".ui.LandingActivity">
+            android:parentActivityName=".ui.LandingActivity"
+            android:theme="@style/Theme.Moviesapp.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.LandingActivity" />
