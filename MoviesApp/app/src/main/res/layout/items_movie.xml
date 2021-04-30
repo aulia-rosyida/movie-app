@@ -71,17 +71,6 @@
             app:drawableLeftCompat="@drawable/ic_quote_24"
             tools:text="@string/quote" />
 
-        <ImageButton
-            android:id="@+id/img_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_share_24"
-            tools:ignore="ContentDescription" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

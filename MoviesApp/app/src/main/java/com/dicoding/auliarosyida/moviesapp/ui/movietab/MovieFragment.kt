@@ -15,9 +15,9 @@ class MovieFragment : Fragment() {
 
     private lateinit var movieFragmentBinding: MovieFragmentBinding
 
-//    companion object {
-//        fun newInstance() = MovieFragment()
-//    }
+    companion object {
+        fun newInstance() = MovieFragment()
+    }
 //
 //    private lateinit var viewModel: MovieViewModel
 
