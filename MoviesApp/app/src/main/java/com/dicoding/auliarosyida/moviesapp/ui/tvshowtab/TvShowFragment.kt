@@ -7,18 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.auliarosyida.moviesapp.R
-import com.dicoding.auliarosyida.moviesapp.databinding.MovieFragmentBinding
 import com.dicoding.auliarosyida.moviesapp.databinding.TvShowFragmentBinding
 import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieAdapter
-import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieViewModel
-import com.dicoding.auliarosyida.moviesapp.utils.DataMovies
 
 class TvShowFragment : Fragment() {
 
     private lateinit var tvShowFragmentBinding: TvShowFragmentBinding
-
-//    private lateinit var viewModel: TvShowViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -10,8 +10,6 @@ import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.ActivityDetailBinding
 import com.dicoding.auliarosyida.moviesapp.databinding.ContentDetailMovieBinding
 import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
-import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieViewModel
-import com.dicoding.auliarosyida.moviesapp.ui.tvshowtab.TvShowViewModel
 
 class DetailActivity : AppCompatActivity() {
 

@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.MovieFragmentBinding
-import com.dicoding.auliarosyida.moviesapp.utils.DataMovies
 
 class MovieFragment : Fragment() {
 

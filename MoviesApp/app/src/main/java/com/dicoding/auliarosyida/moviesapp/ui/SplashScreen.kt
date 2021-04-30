@@ -17,7 +17,7 @@ class SplashScreen : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             // This method will be executed once the timer is over
-            // Start your app main activity
+            // Start landing activity
 
             startActivity(Intent(this, LandingActivity::class.java))
 

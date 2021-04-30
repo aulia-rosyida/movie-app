@@ -2,7 +2,6 @@ package com.dicoding.auliarosyida.moviesapp.ui.landingpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.ActivityLandingBinding
 
 class LandingActivity : AppCompatActivity() {
