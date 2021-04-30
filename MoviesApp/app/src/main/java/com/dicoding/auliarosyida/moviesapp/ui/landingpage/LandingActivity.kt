@@ -1,4 +1,4 @@
-package com.dicoding.auliarosyida.moviesapp.ui
+package com.dicoding.auliarosyida.moviesapp.ui.landingpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

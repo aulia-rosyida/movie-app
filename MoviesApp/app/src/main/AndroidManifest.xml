@@ -16,14 +16,14 @@
 
         <activity android:name=".ui.DetailActivity"
             android:label="@string/title_activity_detail_movie"
-            android:parentActivityName=".ui.LandingActivity"
+            android:parentActivityName=".ui.landingpage.LandingActivity"
             android:theme="@style/Theme.Moviesapp.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.LandingActivity" />
+                android:value=".ui.landingpage.LandingActivity" />
         </activity>
 
-        <activity android:name=".ui.LandingActivity">
+        <activity android:name=".ui.landingpage.LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
