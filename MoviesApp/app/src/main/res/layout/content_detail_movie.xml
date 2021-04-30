@@ -18,7 +18,7 @@
         android:textStyle="bold"
         android:textColor="@color/pink_700"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/text_date"
+        app:layout_constraintStart_toStartOf="@+id/text_year"
         app:layout_constraintTop_toBottomOf="@+id/text_duration"
         tools:text="@string/title" />
 
@@ -30,7 +30,7 @@
         android:textSize="18sp"
         app:drawableLeftCompat="@drawable/ic_circle_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_date"
+        app:layout_constraintStart_toEndOf="@+id/text_year"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/duration" />
 
@@ -46,7 +46,7 @@
         tools:text="@string/genre" />
 
     <TextView
-        android:id="@+id/text_date"
+        android:id="@+id/text_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
