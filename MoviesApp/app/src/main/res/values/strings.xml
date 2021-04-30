@@ -13,4 +13,7 @@
 
     <string name="movies">Movies</string>
     <string name="tvshow">TV Shows</string>
+    <string name="by_developer">by Aulia Rosyida</string>
+    <string name="footprint">Develop patiently</string>
+    <string name="icon_movie_app">Icon Movie App</string>
 </resources>
