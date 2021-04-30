@@ -5,6 +5,17 @@ import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
 
 object DataMovies {
 
+    private val movieId = arrayOf("m1",
+            "m2",
+            "m3",
+            "m4",
+            "m5",
+            "m6",
+            "m7",
+            "m8",
+            "m9",
+            "m10")
+
     private val moviePosters = intArrayOf(R.drawable.poster_how_to_train,
         R.drawable.poster_ralph,
         R.drawable.poster_robin_hood,
@@ -88,6 +99,7 @@ object DataMovies {
             val list = arrayListOf<MovieEntity>()
             for (position in moviePosters.indices) {
                 val movie = MovieEntity()
+                movie.id = movieId[position]
                 movie.poster = moviePosters[position]
                 movie.title = movieTitles[position]
                 movie.quote = movieQuotes[position]
@@ -101,6 +113,17 @@ object DataMovies {
             }
             return list
         }
+
+    private val tvShowId = arrayOf("t1",
+            "t2",
+            "t3",
+            "t4",
+            "t5",
+            "t6",
+            "t7",
+            "t8",
+            "t9",
+            "t10")
 
     private val tvShowPosters = intArrayOf(R.drawable.poster_naruto_shipudden,
         R.drawable.poster_fairytail,
@@ -206,6 +229,7 @@ object DataMovies {
             val list = arrayListOf<MovieEntity>()
             for (position in tvShowPosters.indices) {
                 val tvshow = MovieEntity()
+                tvshow.id = tvShowId[position]
                 tvshow.poster = tvShowPosters[position]
                 tvshow.title = tvShowTitles[position]
                 tvshow.quote = tvShowQuotes[position]

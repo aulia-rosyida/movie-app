@@ -1,6 +1,7 @@
 package com.dicoding.auliarosyida.moviesapp.model
 
 data class MovieEntity (
+    var id: String = "",
     var poster: Int = 0,
     var title: String = "",
     var quote: String = "",
