@@ -94,25 +94,26 @@ object DataMovies {
         "1h 59m",
         "2h 14m")
 
-    val listMovieData: ArrayList<MovieEntity>
-        get() {
-            val list = arrayListOf<MovieEntity>()
-            for (position in moviePosters.indices) {
-                val movie = MovieEntity()
-                movie.id = movieId[position]
-                movie.poster = moviePosters[position]
-                movie.title = movieTitles[position]
-                movie.quote = movieQuotes[position]
-                movie.overview = movieOverviews[position]
-                movie.releaseYear = movieReleaseYears[position]
-                movie.genre = movieGenres[position]
-                movie.duration = movieDurations[position]
-                movie.status = "Released"
-                movie.originalLanguage = "English"
-                list.add(movie)
-            }
-            return list
+    fun generateMovies(): List<MovieEntity> {
+
+        val listMovieData = ArrayList<MovieEntity>()
+
+        for (position in moviePosters.indices) {
+            val movie = MovieEntity()
+            movie.id = movieId[position]
+            movie.poster = moviePosters[position]
+            movie.title = movieTitles[position]
+            movie.quote = movieQuotes[position]
+            movie.overview = movieOverviews[position]
+            movie.releaseYear = movieReleaseYears[position]
+            movie.genre = movieGenres[position]
+            movie.duration = movieDurations[position]
+            movie.status = "Released"
+            movie.originalLanguage = "English"
+            listMovieData.add(movie)
         }
+            return listMovieData
+    }
 
     private val tvShowId = arrayOf("t1",
             "t2",
@@ -224,23 +225,22 @@ object DataMovies {
         "English",
         "English")
 
-    val listTvShowData: ArrayList<MovieEntity>
-        get() {
-            val list = arrayListOf<MovieEntity>()
-            for (position in tvShowPosters.indices) {
-                val tvshow = MovieEntity()
-                tvshow.id = tvShowId[position]
-                tvshow.poster = tvShowPosters[position]
-                tvshow.title = tvShowTitles[position]
-                tvshow.quote = tvShowQuotes[position]
-                tvshow.overview = tvShowOverviews[position]
-                tvshow.releaseYear = tvShowReleaseYears[position]
-                tvshow.genre = tvShowGenres[position]
-                tvshow.duration = tvShowDurations[position]
-                tvshow.status = tvShowStatus[position]
-                tvshow.originalLanguage = tvShowOriginalLanguages[position]
-                list.add(tvshow)
-            }
-            return list
+    fun generateTvShows(): List<MovieEntity> {
+        val listTvShowData = ArrayList<MovieEntity>()
+        for (position in tvShowPosters.indices) {
+            val tvshow = MovieEntity()
+            tvshow.id = tvShowId[position]
+            tvshow.poster = tvShowPosters[position]
+            tvshow.title = tvShowTitles[position]
+            tvshow.quote = tvShowQuotes[position]
+            tvshow.overview = tvShowOverviews[position]
+            tvshow.releaseYear = tvShowReleaseYears[position]
+            tvshow.genre = tvShowGenres[position]
+            tvshow.duration = tvShowDurations[position]
+            tvshow.status = tvShowStatus[position]
+            tvshow.originalLanguage = tvShowOriginalLanguages[position]
+            listTvShowData.add(tvshow)
         }
+        return listTvShowData
+    }
 }

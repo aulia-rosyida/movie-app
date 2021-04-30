@@ -15,9 +15,6 @@ class MovieFragment : Fragment() {
 
     private lateinit var movieFragmentBinding: MovieFragmentBinding
 
-    companion object {
-        fun newInstance() = MovieFragment()
-    }
 //
 //    private lateinit var viewModel: MovieViewModel
 
@@ -33,7 +30,7 @@ class MovieFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
        // viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         if (activity != null) {
-            val movies = DataMovies.listMovieData
+            val movies = DataMovies.generateMovies()
             val movieAdapter = MovieAdapter()
             movieAdapter.setMovies(movies)
 

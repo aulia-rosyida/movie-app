@@ -6,27 +6,41 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.auliarosyida.moviesapp.R
+import com.dicoding.auliarosyida.moviesapp.databinding.MovieFragmentBinding
+import com.dicoding.auliarosyida.moviesapp.databinding.TvShowFragmentBinding
+import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieAdapter
+import com.dicoding.auliarosyida.moviesapp.utils.DataMovies
 
 class TvShowFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = TvShowFragment()
-    }
+    private lateinit var tvShowFragmentBinding: TvShowFragmentBinding
 
-    private lateinit var viewModel: TvShowViewModel
+//    private lateinit var viewModel: TvShowViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.tv_show_fragment, container, false)
+        tvShowFragmentBinding = TvShowFragmentBinding.inflate(layoutInflater, container, false)
+        return tvShowFragmentBinding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(TvShowViewModel::class.java)
-        // TODO: Use the ViewModel
+//        viewModel = ViewModelProvider(this).get(TvShowViewModel::class.java)
+        if (activity != null) {
+            val tvShows = DataMovies.generateTvShows()
+            val movieAdapter = MovieAdapter()
+            movieAdapter.setMovies(tvShows)
+
+            with(tvShowFragmentBinding.rvTvshow){
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                adapter = movieAdapter
+            }
+        }
     }
 
 }
