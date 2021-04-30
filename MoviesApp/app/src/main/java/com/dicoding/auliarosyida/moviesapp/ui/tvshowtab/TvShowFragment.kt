@@ -11,6 +11,7 @@ import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.MovieFragmentBinding
 import com.dicoding.auliarosyida.moviesapp.databinding.TvShowFragmentBinding
 import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieAdapter
+import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieViewModel
 import com.dicoding.auliarosyida.moviesapp.utils.DataMovies
 
 class TvShowFragment : Fragment() {
@@ -29,9 +30,9 @@ class TvShowFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(TvShowViewModel::class.java)
         if (activity != null) {
-            val tvShows = DataMovies.generateTvShows()
+            val tvShowViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
+            val tvShows = tvShowViewModel.getTvShows()
             val movieAdapter = MovieAdapter()
             movieAdapter.setMovies(tvShows)
 

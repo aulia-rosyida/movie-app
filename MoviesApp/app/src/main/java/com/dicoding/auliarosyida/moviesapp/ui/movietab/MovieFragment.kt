@@ -30,7 +30,8 @@ class MovieFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
        // viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         if (activity != null) {
-            val movies = DataMovies.generateMovies()
+            val movieViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
+            val movies = movieViewModel.getMovies()
             val movieAdapter = MovieAdapter()
             movieAdapter.setMovies(movies)
 
