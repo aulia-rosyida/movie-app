@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.ItemsMovieBinding
 import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
-import com.dicoding.auliarosyida.moviesapp.ui.DetailActivity
+import com.dicoding.auliarosyida.moviesapp.ui.detailpage.DetailActivity
 
 class MovieAdapter: RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
     private var listMovies = ArrayList<MovieEntity>()

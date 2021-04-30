@@ -1,7 +1,8 @@
-package com.dicoding.auliarosyida.moviesapp.ui
+package com.dicoding.auliarosyida.moviesapp.ui.detailpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -9,7 +10,8 @@ import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.ActivityDetailBinding
 import com.dicoding.auliarosyida.moviesapp.databinding.ContentDetailMovieBinding
 import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
-import com.dicoding.auliarosyida.moviesapp.utils.DataMovies
+import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieViewModel
+import com.dicoding.auliarosyida.moviesapp.ui.tvshowtab.TvShowViewModel
 
 class DetailActivity : AppCompatActivity() {
 
@@ -29,24 +31,15 @@ class DetailActivity : AppCompatActivity() {
         setSupportActionBar(activityDetailMovieBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val detailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailViewModel::class.java]
+
         val extras = intent.extras
         if (extras != null) {
+
             val tempId = extras.getString(extraMovie)
             if (tempId != null ) {
-                when(tempId.first()) {
-                'm' -> {
-                    for (movie in DataMovies.generateMovies()) {
-                        if (movie.id == tempId) {
-                            populateCard(movie)
-                        }
-                    }}
-                't' -> {
-                    for (tvshow in DataMovies.generateTvShows()) {
-                        if (tvshow.id == tempId) {
-                            populateCard(tvshow)
-                        }
-                    }}
-                }
+                detailViewModel.setSelectedDetail(tempId)
+                populateCard(detailViewModel.getEntity())
             }
         }
     }

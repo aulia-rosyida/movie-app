@@ -14,7 +14,7 @@
         android:theme="@style/Theme.MoviesApp"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".ui.DetailActivity"
+        <activity android:name=".ui.detailpage.DetailActivity"
             android:label="@string/title_activity_detail_movie"
             android:parentActivityName=".ui.landingpage.LandingActivity"
             android:theme="@style/Theme.MoviesApp.NoActionBar">
