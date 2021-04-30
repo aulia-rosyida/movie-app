@@ -64,6 +64,7 @@ class DetailActivity : AppCompatActivity() {
                         .error(R.drawable.ic_error))
                 .into(detailContentBinding.imagePoster)
 
+        detailContentBinding.textQuote.text = entity.quote
         detailContentBinding.textOverview.text = entity.overview
         detailContentBinding.textStatus.text = entity.status
         detailContentBinding.textLang.text = entity.originalLanguage
