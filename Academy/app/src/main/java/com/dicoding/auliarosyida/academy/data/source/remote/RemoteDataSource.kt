@@ -7,6 +7,11 @@ import com.dicoding.auliarosyida.academy.utils.JsonHelper
 
 /**
  *  kelas repository untuk remote
+ *
+ *  bagaimana RemoteDataSource di panggil:
+ *  Ketika Anda memanggil RemoteDataSource, kelas tersebut membutuhkan masukan Context untuk inisialisasi JsonHelper.
+ *  Context ini digunakan untuk mengambil data dari asset.
+ *  Jadi Anda harus membuat kelas Injection, untuk meng-inject context ke dalam RemoteDataSource ketika ViewModel dipanggil.
  * */
 class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
 
