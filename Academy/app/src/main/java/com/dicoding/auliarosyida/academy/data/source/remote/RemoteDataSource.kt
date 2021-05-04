@@ -14,6 +14,10 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
         @Volatile
         private var instance: RemoteDataSource? = null
 
+        /**
+         *  method getInstance yang berfungsi untuk membuat kelas RemoteDataSource sebagai Singleton.
+         *  Fungsinya yaitu supaya tercipta satu instance saja di dalam JVM.
+         * */
         fun getInstance(helper: JsonHelper): RemoteDataSource =
             instance ?: synchronized(this) {
                 instance ?: RemoteDataSource(helper).apply { instance = this }
