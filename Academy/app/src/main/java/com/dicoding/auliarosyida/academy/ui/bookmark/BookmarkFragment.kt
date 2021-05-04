@@ -14,6 +14,7 @@ import com.dicoding.auliarosyida.academy.R
 import com.dicoding.auliarosyida.academy.data.CourseEntity
 import com.dicoding.auliarosyida.academy.databinding.FragmentBookmarkBinding
 import com.dicoding.auliarosyida.academy.utils.DataDummy
+import com.dicoding.auliarosyida.academy.viewmodel.ViewModelFactory
 
 /**
  * BookmarkFragment: Digunakan untuk menampilkan semua Course yang sudah Anda bookmark.
@@ -35,7 +36,8 @@ class BookmarkFragment : Fragment(), BookmarkFragmentCallback {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookmarkViewModel::class.java]
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[BookmarkViewModel::class.java]
             val courses = viewModel.getBookmarks()
 
             val adapter = BookmarkAdapter(this)

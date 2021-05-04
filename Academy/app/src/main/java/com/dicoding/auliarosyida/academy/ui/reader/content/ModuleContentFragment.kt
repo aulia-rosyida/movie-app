@@ -11,6 +11,7 @@ import com.dicoding.auliarosyida.academy.data.ContentEntity
 import com.dicoding.auliarosyida.academy.data.ModuleEntity
 import com.dicoding.auliarosyida.academy.databinding.FragmentModuleContentBinding
 import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderViewModel
+import com.dicoding.auliarosyida.academy.viewmodel.ViewModelFactory
 
 /**
  * ModuleContentFragment: Menampilkan Content dari Module yang dipilih
@@ -39,7 +40,8 @@ class ModuleContentFragment : Fragment() {
         if (activity != null) {
             //Fragment akan menggunakan ViewModel yang ada pada Activity (shared ViewModel).
             // Jika Anda ganti requireActivity() dengan this, maka Fragment tidak akan mengambil ViewModel dari Activity tetapi akan membuat ViewModel baru.
-            val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[CourseReaderViewModel::class.java]
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(requireActivity(), factory)[CourseReaderViewModel::class.java]
 
             val module = viewModel.getSelectedModule() /**
             Mengapa ModuleContentFragment bisa langsung tahu ModuleEntity?

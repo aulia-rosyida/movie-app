@@ -15,6 +15,7 @@ import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderActivity
 import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderCallback
 import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderViewModel
 import com.dicoding.auliarosyida.academy.utils.DataDummy
+import com.dicoding.auliarosyida.academy.viewmodel.ViewModelFactory
 
 /**
  * ModuleListFragment: Digunakan untuk menampilkan semua Module sesuai Course yang dipilih.
@@ -44,7 +45,8 @@ class ModuleListFragment : Fragment() , MyAdapterClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[CourseReaderViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        viewModel = ViewModelProvider(requireActivity(), factory)[CourseReaderViewModel::class.java]
         adapter = ModuleListAdapter(this)
         populateRecyclerView(viewModel.getModules())
     }

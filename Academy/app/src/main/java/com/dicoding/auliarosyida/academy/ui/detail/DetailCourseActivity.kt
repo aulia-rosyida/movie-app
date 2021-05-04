@@ -17,6 +17,7 @@ import com.dicoding.auliarosyida.academy.databinding.ActivityDetailCourseBinding
 import com.dicoding.auliarosyida.academy.databinding.ContentDetailCourseBinding
 import com.dicoding.auliarosyida.academy.ui.reader.CourseReaderActivity
 import com.dicoding.auliarosyida.academy.utils.DataDummy
+import com.dicoding.auliarosyida.academy.viewmodel.ViewModelFactory
 
 /**
  * DetailCourseActivity: Menampilkan detail Course dan menampilkan list Module yang ada tiap Course-nya.
@@ -43,7 +44,8 @@ class DetailCourseActivity : AppCompatActivity() {
 
         val adapter = DetailCourseAdapter()
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailCourseViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailCourseViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
