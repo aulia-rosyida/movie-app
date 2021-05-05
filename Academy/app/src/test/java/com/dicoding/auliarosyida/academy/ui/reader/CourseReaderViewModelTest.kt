@@ -15,6 +15,20 @@ import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Memuat Modules:
+- Memanipulasi data ketika pemanggilan data module di kelas repository.
+- Memastikan metode di kelas repository terpanggil.
+- Melakukan pengecekan data module apakah null atau tidak.
+- Melakukan pengecekan jumlah data module apakah sudah sesuai atau belum.
+
+* Memuat Module yang dipilih:
+- Memanipulasi data ketika pemanggilan data content di kelas repository.
+- Memastikan metode di kelas repository terpanggil.
+- Melakukan pengecekan data content apakah null atau tidak.
+- Membandingkan data content sudah sesuai dengan yang diharapkan atau tidak.
+ * */
+
 @RunWith(MockitoJUnitRunner::class)
 class CourseReaderViewModelTest  {
 

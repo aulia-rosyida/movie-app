@@ -12,6 +12,14 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Memuat Bookmarks:
+- Memanipulasi data ketika pemanggilan data course di kelas repository.
+- Memastikan metode di kelas repository terpanggil.
+- Melakukan pengecekan data course apakah null atau tidak.
+- Melakukan pengecekan jumlah data course apakah sudah sesuai atau belum.
+ * */
+
 @RunWith(MockitoJUnitRunner::class)
 class BookmarkViewModelTest {
     private lateinit var viewModel: BookmarkViewModel
