@@ -21,11 +21,19 @@ class MainViewModel: ViewModel() {
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 val newValue = (SystemClock.elapsedRealtime() - mInitialTime) / 1000
-                mElapsedTime.postValue(newValue)
+                mElapsedTime.postValue(newValue) //merubah value-nya adalah pada bagian ini.
+            // menyisipkan perubahan yang terjadi dengan postValue(), jadi secara realtime MutableLiveData akan menerima data yang baru
             }
         }, ONE_SECOND.toLong(), ONE_SECOND.toLong())
     }
 
+    /**
+     * terdapat LiveData dan MutableLiveData.
+     *
+     * Lalu apa bedanya? Keduanya sebenarnya mirip
+     * bedanya MutableLiveData bisa kita ubah value-nya,
+     * sedangkan LiveData bersifat Read-Only.
+     * */
     fun getElapsedTime(): LiveData<Long?> {
         return mElapsedTime
     }

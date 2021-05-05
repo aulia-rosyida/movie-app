@@ -21,14 +21,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     *  Pemanggilan metode getElapsedTime dilakukan dengan cara subscribe.
+     *  Pemanggilan metode getElapsedTime dilakukan dengan cara / metode subscribe.
      *  Jadi setiap ada perubahan dari metode tersebut, maka akan mengubah TextView secara otomatis.
      * */
     private fun subscribe() {
-        val elapsedTimeObserver = Observer<Long?> { aLong ->
+        val elapsedTimeObserver = Observer<Long?> { aLong -> //aLong akan selalu diperbarui secara realtime sesuai dengan perubahan yang ada di kelas ViewMode
             val newText = this@MainActivity.resources.getString(R.string.seconds, aLong)
             activityMainBinding.timerTextview.text = newText
         }
         mLiveDataTimerViewModel.getElapsedTime().observe(this, elapsedTimeObserver)
+        /**
+         * jika elapsedTimeObserver tidak dipanggil saat melakukan observe getElapsedTime() maka nilai aLong juga tidak akan ada perubahan.
+         *
+         * --> Jadi cara mendapatkan value dari sebuah LiveData harus dilakukan dengan cara meng-observe LiveData tersebut.
+         * Dan proses ini dilakukan secara asynchronous.
+         * */
+
     }
 }
