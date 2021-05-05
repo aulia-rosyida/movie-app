@@ -13,6 +13,12 @@ import java.io.IOException
  * */
 class JsonHelper(private val context: Context) {
 
+    /**
+     * mengubah file JSON menjadi String.
+     *
+     * Anda bisa juga parsingFileToString dengan melakukan request langsung ke API.
+     * Prinsipnya sama, setelah jadi String akan di ubah menjadi array sesuai kebutuhan aplikasi Anda.
+     * */
     private fun parsingFileToString(fileName: String): String? {
         return try {
             val `is` = context.assets.open(fileName)
@@ -27,10 +33,16 @@ class JsonHelper(private val context: Context) {
         }
     }
 
+    /**
+     * untuk mendapatkan semua data Course
+     * parsingFileToString dengan melakukan request langsung ke API.
+     * */
     fun loadCourses(): List<CourseResponse> {
         val list = ArrayList<CourseResponse>()
         try {
             val responseObject = JSONObject(parsingFileToString("CourseResponses.json").toString())
+
+            //Hasil dari String di ubah menjadi JSONObject dan di ubah menjadi CourseResponse
             val listArray = responseObject.getJSONArray("courses")
             for (i in 0 until listArray.length()) {
                 val course = listArray.getJSONObject(i)

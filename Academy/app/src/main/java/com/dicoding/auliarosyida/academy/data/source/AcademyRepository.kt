@@ -7,6 +7,7 @@ import com.dicoding.auliarosyida.academy.data.source.remote.RemoteDataSource
 
 /**
  * kelas untuk menghubungkan RemoteDataSource.
+ * AcademyRepository sebagai filter antara remote dan local.
  * */
 class AcademyRepository private constructor(private val remoteDataSource: RemoteDataSource) : AcademyDataSource {
 
@@ -19,6 +20,12 @@ class AcademyRepository private constructor(private val remoteDataSource: Remote
             }
     }
 
+    /**
+     * metode getAllCourses melakukan perubahan data array dari CourseResponse menjadi CourseEntity.
+     * Ini dilakukan agar apa yang ada di View tidak banyak berubah.
+     *
+     * Sehingga di dalam AcademyViewModel bisa langsung memanggil getAllCourses()
+     * */
     override fun getAllCourses():ArrayList<CourseEntity> {
         val courseResponses = remoteDataSource.getAllCourses()
         val courseList = ArrayList<CourseEntity>()

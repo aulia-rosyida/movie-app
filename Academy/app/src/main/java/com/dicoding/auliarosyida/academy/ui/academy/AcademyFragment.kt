@@ -30,7 +30,10 @@ class AcademyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
+
+            //Ketika Activity atau Fragment membutuhkan ViewModel, maka akan memanggil kelas Factory untuk membuat ViewModel.
             val factory = ViewModelFactory.getInstance(requireActivity()) // inisialisasi ViewModelFactory
+
             // ganti default factory dengan factory yang sudah Anda buat
             val viewModel = ViewModelProvider(this, factory)[AcademyViewModel::class.java]
             val courses = viewModel.getCourses()
