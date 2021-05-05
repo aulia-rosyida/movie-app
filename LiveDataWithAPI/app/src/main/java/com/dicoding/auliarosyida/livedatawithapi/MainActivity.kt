@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         // observe LiveData di ViewModel dari MainActivity dan tampilkan hasilnya pada komponen UI
+        //mengambil data dari API dengan menggunakan retrofit dan LiveData
         mainViewModel.restaurant.observe(this, { restaurant ->
             activityMainBinding.tvTitle.text = restaurant.name
             activityMainBinding.tvDescription.text = restaurant.description
