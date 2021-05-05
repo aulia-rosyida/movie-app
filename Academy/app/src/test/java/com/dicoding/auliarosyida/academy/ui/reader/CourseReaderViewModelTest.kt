@@ -1,13 +1,21 @@
 package com.dicoding.auliarosyida.academy.ui.reader
 
 import com.dicoding.auliarosyida.academy.data.ContentEntity
+import com.dicoding.auliarosyida.academy.data.ModuleEntity
+import com.dicoding.auliarosyida.academy.data.source.AcademyRepository
 import com.dicoding.auliarosyida.academy.utils.DataDummy
 import junit.framework.TestCase
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.verify
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class CourseReaderViewModelTest  {
 
     private lateinit var viewModel: CourseReaderViewModel
@@ -17,9 +25,12 @@ class CourseReaderViewModelTest  {
     private val dummyModules = DataDummy.generateDummyModules(courseId)
     private val moduleId = dummyModules[0].moduleId
 
+    @Mock
+    private lateinit var academyRepository: AcademyRepository
+
     @Before
     fun setUp() {
-        viewModel = CourseReaderViewModel()
+        viewModel = CourseReaderViewModel(academyRepository)
         viewModel.setSelectedCourse(courseId)
         viewModel.setSelectedModule(moduleId)
 
@@ -32,7 +43,9 @@ class CourseReaderViewModelTest  {
      * */
     @Test
     fun getModules() {
+        `when`(academyRepository.getAllModulesByCourse(courseId)).thenReturn(dummyModules as ArrayList<ModuleEntity>)
         val moduleEntities = viewModel.getModules()
+        verify(academyRepository).getAllModulesByCourse(courseId)
         assertNotNull(moduleEntities)
         assertEquals(7, moduleEntities.size.toLong())
     }
@@ -42,10 +55,16 @@ class CourseReaderViewModelTest  {
      * */
     @Test
     fun getSelectedModule() {
+        `when`(academyRepository.getContent(courseId, moduleId)).thenReturn(dummyModules[0]) // setiap pengujian harus ditambahkan when.thenReturn
+                                                                                             // untuk mendapatkan balikan yang diinginkan.
+                                                                                             // Karena jika tanpa when.thenReturn AcademyRepository menjadi null.
         val moduleEntity = viewModel.getSelectedModule()
+        verify(academyRepository).getContent(courseId, moduleId)
         assertNotNull(moduleEntity)
+
         val contentEntity = moduleEntity.contentEntity
         assertNotNull(contentEntity)
+
         val content = contentEntity?.content
         assertNotNull(content)
         assertEquals(content, dummyModules[0].contentEntity?.content)
