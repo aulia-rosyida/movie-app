@@ -8,6 +8,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  *  membuat konfigurasi Retrofit
+ *
+ *  Kelas ini akan membuat kode Anda menjadi lebih efektif
+ *  karena Anda tidak perlu membuat konfigurasi Retrofit baru setiap kali membutuhkannya,
+ *  namun cukup memanggil fungsi yang ada di dalam class ini saja.
  * */
 class ApiConfig {
 
