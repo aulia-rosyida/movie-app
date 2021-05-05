@@ -21,8 +21,13 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        // observe LiveData di ViewModel dari MainActivity dan tampilkan hasilnya pada komponen UI
         //mengambil data dari API dengan menggunakan retrofit dan LiveData
+        /**
+         *  cara mendapatkan value dari LiveData yang ada pada kelas ViewModel. Perhatikan metode observe
+         *  observe LiveData di ViewModel dari MainActivity dan tampilkan hasilnya pada komponen UI
+         *
+         *  proses ini dilakukan secara asynchronous sehingga tidak akan mengganggu interaksi UI Anda
+         * */
         mainViewModel.restaurant.observe(this, { restaurant ->
             activityMainBinding.tvTitle.text = restaurant.name
             activityMainBinding.tvDescription.text = restaurant.description
@@ -31,7 +36,9 @@ class MainActivity : AppCompatActivity() {
                     .into(activityMainBinding.ivPicture)
         })
 
-        mainViewModel.listReview.observe(this, { consumerReviews ->
+        mainViewModel.listReview.observe(this, { consumerReviews -> // custom variabel untuk hasil LiveData yang ada di ViewModel.
+                                                       // Jika Anda tidak menuliskan customerReviews-> maka variabel default-nya adalah it.
+                                                        // selalu diperbarui secara realtime sesuai dengan perubahan yang ada di kelas ViewModel
             val listReview = consumerReviews.map {
                 "${it.review}\n- ${it.name}"
             }

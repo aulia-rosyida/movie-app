@@ -2,6 +2,16 @@ package com.dicoding.auliarosyida.livedatawithapi
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Dengan menggunakan RoboPojoGenerator, Anda telah membuat class model yang berfungsi untuk menampung data dari JSON.
+ * 3 class yang dibuat merepresentasikan kedalaman object yang diambil.
+ *
+ * Untuk membedakan antara JSONObject dan JSONArray, Anda cukup menggunakan List<CustomerReviewsItem> untuk JSONArray;
+ * dan Restaurant tanpa List untuk JSONObject.
+ * untuk menandai sebuah variabel terhubung dengan data JSON, Anda gunakan annotation @SerializedName
+ * */
+
+//Class RestaurantResponse untuk mengambil data respon dari server seperti eror dan message.
 data class RestaurantResponse(
 
 	@field:SerializedName("restaurant")
@@ -14,6 +24,7 @@ data class RestaurantResponse(
 	val message: String
 )
 
+//class CustomerReviewItem untuk mengambil JSON Array customerReviews
 data class CustomerReviewsItem(
 
 	@field:SerializedName("date")
@@ -26,6 +37,7 @@ data class CustomerReviewsItem(
 	val name: String
 )
 
+//class Restaurant untuk mengambil JSON Object restaurant
 data class Restaurant(
 
 	@field:SerializedName("customerReviews")

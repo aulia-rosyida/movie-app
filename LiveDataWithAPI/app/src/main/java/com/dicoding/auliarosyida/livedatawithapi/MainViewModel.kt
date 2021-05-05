@@ -12,6 +12,13 @@ class MainViewModel : ViewModel() {
 
     /**
      * variabel untuk menampung data restoran dan review
+     * MutableLiveData bisa kita ubah value-nya, sedangkan LiveData bersifat read-only (tidak dapat diubah).
+     *
+     * Enkapsulasi LiveData dengan Backing Property:
+     * membuat data yang bertipe MutableLiveData menjadi private (_listReview) dan yang bertipe LiveData menjadi public (listReview)
+     *
+     * Dengan begitu Anda dapat mencegah variabel yang bertipe MutableLiveData diubah dari luar class.
+     * Karena memang seharusnya hanya ViewModel-lah yang dapat mengubah data.
      * */
     private val _restaurant = MutableLiveData<Restaurant>()
     val restaurant: LiveData<Restaurant> = _restaurant
@@ -40,7 +47,7 @@ class MainViewModel : ViewModel() {
                     call: Call<RestaurantResponse>,
                     response: Response<RestaurantResponse>
             ) {
-                _isLoading.value = false
+                _isLoading.value = false //Yang dimaksud mengubah value-nya adalah pada bagian ini
                 if (response.isSuccessful) {
                     _restaurant.value = response.body()?.restaurant
                     _listReview.value = response.body()?.restaurant?.customerReviews
