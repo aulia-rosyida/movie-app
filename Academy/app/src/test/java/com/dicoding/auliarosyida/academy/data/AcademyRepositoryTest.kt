@@ -11,6 +11,9 @@ import org.mockito.Mockito.verify
 
 /**
  * Di dalam AcademyRepositoryTest, ke-5 metode harus dilakukan pengujian untuk membuktikan bahwa metode tidak mengalami masalah.
+ *
+ * menggunakan bantuan when() karena AcademyRepository pada pengujian Anda mock yang mengakibatkan data yang dihasilkan null.
+ * juga melakukan pengecekan dengan verify.
  * */
 class AcademyRepositoryTest {
 
@@ -27,7 +30,7 @@ class AcademyRepositoryTest {
     fun getAllCourses() {
         `when`(remote.getAllCourses()).thenReturn(courseResponses)
         val courseEntities = academyRepository.getAllCourses()
-        verify(remote).getAllCourses()
+        verify(remote).getAllCourses() //verify disini untuk mengecek apakah metode getAllCourse terpanggil jika Anda memanggil viewModel.getCourses().
         assertNotNull(courseEntities)
         assertEquals(courseResponses.size.toLong(), courseEntities.size.toLong())
     }
