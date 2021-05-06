@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.dicoding.auliarosyida.livedatawithapi.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(activityMainBinding.root)
 
         supportActionBar?.hide()
+
+        // observe pada variabel snackbarText yang ada di dalam MainActivity dan tampilkan menggunakan Snackbar
+        mainViewModel.snackbarText.observe(this, {
+            Snackbar.make(
+                    window.decorView.rootView,
+                    it,
+                    Snackbar.LENGTH_SHORT
+            ).show()
+        })
 
         //mengambil data dari API dengan menggunakan retrofit dan LiveData
         /**
