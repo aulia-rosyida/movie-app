@@ -26,11 +26,14 @@ class MainActivity : AppCompatActivity() {
         //sampai sini, snackbar sudah muncul, tp pada saat di rotate dia akan muncul lagi
         // karena observe mendeteksi adanya message saat konfigurasi changes
         mainViewModel.snackbarText.observe(this, {
-            Snackbar.make(
-                    window.decorView.rootView,
-                    it,
-                    Snackbar.LENGTH_SHORT
-            ).show()
+            // memanfaatkan fungsi getContentIfHandled dari kelas Event untuk mengetahui apakah aksi tersebut pernah dilakukan sebelumnya atau tidak
+            it.getContentIfNotHandled()?.let { snackBarText ->
+                Snackbar.make(
+                        window.decorView.rootView,
+                        snackBarText,
+                        Snackbar.LENGTH_SHORT
+                ).show()
+            }
         })
 
         //mengambil data dari API dengan menggunakan retrofit dan LiveData
