@@ -6,6 +6,7 @@ import com.dicoding.auliarosyida.academy.data.ContentEntity
 import com.dicoding.auliarosyida.academy.data.CourseEntity
 import com.dicoding.auliarosyida.academy.data.ModuleEntity
 import com.dicoding.auliarosyida.academy.data.source.remote.RemoteDataSource
+import com.dicoding.auliarosyida.academy.data.source.remote.RemoteDataSource.LoadCoursesCallback
 import com.dicoding.auliarosyida.academy.data.source.remote.response.ContentResponse
 import com.dicoding.auliarosyida.academy.data.source.remote.response.CourseResponse
 import com.dicoding.auliarosyida.academy.data.source.remote.response.ModuleResponse
@@ -21,7 +22,7 @@ class AcademyRepository private constructor(private val remoteDataSource: Remote
         private var instance: AcademyRepository? = null
         fun getInstance(remoteData: RemoteDataSource): AcademyRepository =
             instance ?: synchronized(this) {
-                instance ?: AcademyRepository(remoteData).apply { instance = this }
+                AcademyRepository(remoteData).apply { instance = this }
             }
     }
 
@@ -33,7 +34,7 @@ class AcademyRepository private constructor(private val remoteDataSource: Remote
      * */
     override fun getAllCourses(): LiveData<List<CourseEntity>> {
         val courseResults = MutableLiveData<List<CourseEntity>>()
-        remoteDataSource.getAllCourses(object : RemoteDataSource.LoadCoursesCallback {
+        remoteDataSource.getAllCourses(object : LoadCoursesCallback {
             override fun onAllCoursesReceived(courseResponses: List<CourseResponse>) {
                 val courseList = ArrayList<CourseEntity>()
                 for (response in courseResponses) {
@@ -45,7 +46,7 @@ class AcademyRepository private constructor(private val remoteDataSource: Remote
                         response.imagePath)
                     courseList.add(course)
                 }
-                courseResults.postValue(courseList)
+                courseResults.postValue(courseList) //ketika Anda ingin mengirim value yang berjalan secara asynchronize ke LiveData
             }
         })
         return courseResults
@@ -54,7 +55,7 @@ class AcademyRepository private constructor(private val remoteDataSource: Remote
     override fun getBookmarkedCourses(): LiveData<List<CourseEntity>> {
         val courseResults = MutableLiveData<List<CourseEntity>>()
 
-        remoteDataSource.getAllCourses(object : RemoteDataSource.LoadCoursesCallback {
+        remoteDataSource.getAllCourses(object : LoadCoursesCallback {
             override fun onAllCoursesReceived(courseResponses: List<CourseResponse>) {
                 val courseList = java.util.ArrayList<CourseEntity>()
                 for (response in courseResponses) {
@@ -74,7 +75,7 @@ class AcademyRepository private constructor(private val remoteDataSource: Remote
 
     override fun getCourseWithModules(courseId: String): LiveData<CourseEntity> {
         val courseResult = MutableLiveData<CourseEntity>()
-        remoteDataSource.getAllCourses(object : RemoteDataSource.LoadCoursesCallback {
+        remoteDataSource.getAllCourses(object : LoadCoursesCallback {
             override fun onAllCoursesReceived(courseResponses: List<CourseResponse>) {
                 lateinit var course: CourseEntity
                 for (response in courseResponses) {

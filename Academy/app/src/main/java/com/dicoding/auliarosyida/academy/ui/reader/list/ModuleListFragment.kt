@@ -50,7 +50,7 @@ class ModuleListFragment : Fragment() , MyAdapterClickListener {
         adapter = ModuleListAdapter(this)
 
         fragmentModuleListBinding.progressBar.visibility = View.VISIBLE
-        viewModel.getModules().observe(viewLifecycleOwner, { modules ->
+        viewModel.getModules().observe(requireActivity(), { modules ->
             fragmentModuleListBinding.progressBar.visibility = View.GONE
             populateRecyclerView(modules)
         })

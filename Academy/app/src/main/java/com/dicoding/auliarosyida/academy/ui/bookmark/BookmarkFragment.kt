@@ -38,13 +38,12 @@ class BookmarkFragment : Fragment(), BookmarkFragmentCallback {
         if (activity != null) {
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[BookmarkViewModel::class.java]
-            val courses = viewModel.getBookmarks()
 
             val adapter = BookmarkAdapter(this)
 
             //kode untuk melakukan observe untuk membaca LiveData
             fragmentBookmarkBinding.progressBar.visibility = View.VISIBLE
-            viewModel.getBookmarks().observe(viewLifecycleOwner, { courses ->
+            viewModel.getBookmarks().observe(requireActivity(), { courses ->
                 fragmentBookmarkBinding.progressBar.visibility = View.GONE
                 adapter.setCourses(courses)
                 adapter.notifyDataSetChanged()

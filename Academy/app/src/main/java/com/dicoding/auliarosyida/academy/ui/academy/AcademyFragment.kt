@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.auliarosyida.academy.databinding.FragmentAcademyBinding
@@ -41,7 +42,7 @@ class AcademyFragment : Fragment() {
 
             // kode untuk melakukan observe untuk membaca LiveData
             fragmentAcademyBinding.progressBar.visibility = View.VISIBLE
-            viewModel.getCourses().observe(viewLifecycleOwner, { courses ->
+            viewModel.getCourses().observe(requireActivity(), { courses ->
                 fragmentAcademyBinding.progressBar.visibility = View.GONE
                 academyAdapter.setCourses(courses)
                 academyAdapter.notifyDataSetChanged()

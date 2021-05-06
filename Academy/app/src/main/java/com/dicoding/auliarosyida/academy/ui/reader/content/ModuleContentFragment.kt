@@ -44,7 +44,7 @@ class ModuleContentFragment : Fragment() {
             val viewModel = ViewModelProvider(requireActivity(), factory)[CourseReaderViewModel::class.java]
 
             fragmentModuleContentBinding.progressBar.visibility = View.VISIBLE
-            viewModel.getSelectedModule().observe(viewLifecycleOwner, { module ->
+            viewModel.getSelectedModule().observe(requireActivity(), { module ->
                 fragmentModuleContentBinding.progressBar.visibility = View.GONE
                 if (module != null) {
                     populateWebView(module)
