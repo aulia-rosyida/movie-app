@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         // observe pada variabel snackbarText yang ada di dalam MainActivity dan tampilkan menggunakan Snackbar
+        //sampai sini, snackbar sudah muncul, tp pada saat di rotate dia akan muncul lagi
+        // karena observe mendeteksi adanya message saat konfigurasi changes
         mainViewModel.snackbarText.observe(this, {
             Snackbar.make(
                     window.decorView.rootView,
