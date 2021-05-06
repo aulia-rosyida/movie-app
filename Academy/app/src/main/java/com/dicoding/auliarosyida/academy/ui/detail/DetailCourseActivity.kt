@@ -52,7 +52,7 @@ class DetailCourseActivity : AppCompatActivity() {
         if (extras != null) {
             val courseId = extras.getString(EXTRA_COURSE)
             if (courseId != null) {
-                activityDetailCourseBinding.progressBar.visibility = View.VISIBLE
+//                activityDetailCourseBinding.progressBar.visibility = View.VISIBLE
                 activityDetailCourseBinding.content.visibility = View.INVISIBLE
 
                 viewModel.setSelectedCourse(courseId) //Dengan bantuan kelas ViewModel, courseId akan dipertahankan sampai Activity masuk ke state onDestroy.
