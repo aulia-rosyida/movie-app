@@ -29,6 +29,7 @@ class MainViewModel : ViewModel() {
 
     // variabel untuk menyimpan text yang akan ditampilkan Snackbar
     private val _snackbarText = MutableLiveData<Event<String>>() // gunakan wrapper Event.kt untuk membungkus variabel String
+                                                                    // membungkusnya dengan format Event<TipeData>
     val snackbarText: LiveData<Event<String>> = _snackbarText
 
     companion object{
@@ -78,6 +79,12 @@ class MainViewModel : ViewModel() {
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _listReview.value = response.body()?.customerReviews
+
+                    /**
+                     * untuk memasukkan nilai ke dalam variabel yang dibungkus wrapper Event,
+                     * Anda harus menginisialisasi Event dengan constructor pesan yang ingin dijadikan sebagai content seperti ini
+                     * untuk menyesuaikan tipenya
+                     * */
                     _snackbarText.value =  Event(response.body()?.message.toString())// isi variabel tersebut dengan pesan yang didapat setelah sukses mengirim review
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")

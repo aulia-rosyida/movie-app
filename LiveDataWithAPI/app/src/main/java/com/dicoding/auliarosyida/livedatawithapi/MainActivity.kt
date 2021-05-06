@@ -22,18 +22,20 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        // observe pada variabel snackbarText yang ada di dalam MainActivity dan tampilkan menggunakan Snackbar
-        //sampai sini, snackbar sudah muncul, tp pada saat di rotate dia akan muncul lagi
-        // karena observe mendeteksi adanya message saat konfigurasi changes
+        /**
+         * observe pada variabel snackbarText yang ada di dalam MainActivity dan tampilkan menggunakan Snackbar
+         * sampai sini, snackbar sudah muncul, tp pada saat di rotate dia akan muncul lagi
+         * karena observe mendeteksi adanya message saat konfigurasi changes --> butuh Event Wrapper
+         * */
         mainViewModel.snackbarText.observe(this, {
             // memanfaatkan fungsi getContentIfHandled dari kelas Event untuk mengetahui apakah aksi tersebut pernah dilakukan sebelumnya atau tidak
-            it.getContentIfNotHandled()?.let { snackBarText ->
+            it.getContentIfNotHandled()?.let { snackBarText -> //untuk mengambil data tersebut, cukup panggil fungsi getContentIfNotHandled
                 Snackbar.make(
                         window.decorView.rootView,
                         snackBarText,
                         Snackbar.LENGTH_SHORT
                 ).show()
-            }
+            } //Secara otomatis ketika aksi sudah pernah dilakukan sebelumnya, maka ia akan menghasilkan null
         })
 
         //mengambil data dari API dengan menggunakan retrofit dan LiveData
