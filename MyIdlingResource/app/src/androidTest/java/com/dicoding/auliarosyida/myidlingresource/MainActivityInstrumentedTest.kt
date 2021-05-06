@@ -37,6 +37,7 @@ class MainActivityInstrumentedTest {
 
     @After
     fun tearDown() {
+        // pastikan setelah Anda berhasil melakukan pengujian, Anda menghapus increment dan decrement dari kode Anda. Karena itu bisa menimbulkan memory leak.
         IdlingRegistry.getInstance().unregister(EspressoIdlingResource.getEspressoIdlingResource())
     }
 
@@ -44,7 +45,10 @@ class MainActivityInstrumentedTest {
     fun checkText() {
         onView(withId(R.id.text_view)).check(matches(withText(instrumentalContext.getString(R.string.prepare))))
         onView(withText(instrumentalContext.getString(R.string.start))).perform(click())
-        onView(withId(R.id.text_view)).check(matches(withText(instrumentalContext.getString(R.string.delay1))))
+
+        // Idling Resource hanya akan bekerja jika benar-benar dalam kondisi 0. Jadi Anda tidak bisa melakukan pengujian untuk teks delay1
+        //onView(withId(R.id.text_view)).check(matches(withText(instrumentalContext.getString(R.string.delay1))))
+        onView(withId(R.id.text_view)).check(matches(withText(instrumentalContext.getString(R.string.delay2))))
     }
 
 }
