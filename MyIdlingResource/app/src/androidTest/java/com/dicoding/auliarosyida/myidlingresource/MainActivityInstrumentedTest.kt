@@ -28,13 +28,17 @@ class MainActivityInstrumentedTest {
 
     private lateinit var instrumentalContext: Context
 
+    //@Before digunakan untuk menyiapkan apa saja yang perlu disiapkan sebelum pengujian
     @Before
     fun setUp() {
         instrumentalContext = InstrumentationRegistry.getInstrumentation().targetContext
         ActivityScenario.launch(MainActivity::class.java)
+
+        //getEspressoIdlingResource digunakan untuk mendaftarkan Idling Resource di Instrumental Testing
         IdlingRegistry.getInstance().register(EspressoIdlingResource.getEspressoIdlingResource())
     }
 
+    //@After digunakan untuk memberi aksi setelah pengujian selesai.
     @After
     fun tearDown() {
         // pastikan setelah Anda berhasil melakukan pengujian, Anda menghapus increment dan decrement dari kode Anda. Karena itu bisa menimbulkan memory leak.
@@ -46,7 +50,10 @@ class MainActivityInstrumentedTest {
         onView(withId(R.id.text_view)).check(matches(withText(instrumentalContext.getString(R.string.prepare))))
         onView(withText(instrumentalContext.getString(R.string.start))).perform(click())
 
-        // Idling Resource hanya akan bekerja jika benar-benar dalam kondisi 0. Jadi Anda tidak bisa melakukan pengujian untuk teks delay1
+        /**
+         * Idling Resource hanya akan bekerja jika benar-benar dalam kondisi 0. Jadi Anda tidak bisa melakukan pengujian untuk teks delay1
+         * Selama state dari idling resource belum kondisi 0, maka proses pengujian akan berhenti sampai benar-benar 0 kembali.
+         */
         //onView(withId(R.id.text_view)).check(matches(withText(instrumentalContext.getString(R.string.delay1))))
         onView(withId(R.id.text_view)).check(matches(withText(instrumentalContext.getString(R.string.delay2))))
     }
