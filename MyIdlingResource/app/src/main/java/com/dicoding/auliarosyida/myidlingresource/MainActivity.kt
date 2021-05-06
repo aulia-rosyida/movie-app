@@ -20,8 +20,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun delay1() {
+        EspressoIdlingResource.increment()
         Handler(Looper.getMainLooper()).postDelayed({
             activityMainBinding.textView.text = getString(R.string.delay1)
+            if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+                //Memberitahukan bahwa tugas sudah selesai dijalankan
+                EspressoIdlingResource.decrement()
+            }
         }, 2000)
     }
 }
