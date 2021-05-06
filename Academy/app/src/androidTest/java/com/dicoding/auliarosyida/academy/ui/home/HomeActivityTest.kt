@@ -83,6 +83,14 @@ import org.junit.Test
         onView(withId(R.id.rv_bookmark)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyCourse.size))
     }
 
+    /**
+     * Pada saat Aplikasi mengambil data di RemoteDataSource , terdapat delay di saat proses pengambilan data.
+     * Oleh karena itu, di InstrumentalTesting perlu Anda tambahkan proses delay.
+     *
+     * Namun perlu Anda ketahui, penambahan delay di RemoteDataSource bermaksud untuk memberikan simulasi pengambilan Api lebih nyata.
+     * Realitanya, proses tunggu atau delay ini tidak bisa diprediksi secara pasti karena prosesnya asynchronous.
+     * Oleh karena itu pada materi selanjutnya kita akan membahas tentang Idle Resource.
+     * */
     private fun delayTwoSecond() {
         try {
             Thread.sleep(2000)
