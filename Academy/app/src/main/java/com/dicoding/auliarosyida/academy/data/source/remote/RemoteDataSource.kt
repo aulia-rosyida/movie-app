@@ -5,6 +5,7 @@ import android.os.Looper
 import com.dicoding.auliarosyida.academy.data.source.remote.response.ContentResponse
 import com.dicoding.auliarosyida.academy.data.source.remote.response.CourseResponse
 import com.dicoding.auliarosyida.academy.data.source.remote.response.ModuleResponse
+import com.dicoding.auliarosyida.academy.utils.EspressoIdlingResource
 import com.dicoding.auliarosyida.academy.utils.JsonHelper
 
 /**
@@ -45,15 +46,27 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
 
     //semua data yang diambil dari Repository sampai ke ViewModel akan dibungkus dengan LiveData
     fun getAllCourses(callback: LoadCoursesCallback) {
-        handler.postDelayed({ callback.onAllCoursesReceived(jsonHelper.loadCourses()) }, SERVICE_LATENCY_IN_MILLIS)
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onAllCoursesReceived(jsonHelper.loadCourses())
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     fun getModules(courseId: String, callback: LoadModulesCallback) {
-        handler.postDelayed({ callback.onAllModulesReceived(jsonHelper.loadModule(courseId)) }, SERVICE_LATENCY_IN_MILLIS)
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onAllModulesReceived(jsonHelper.loadModule(courseId))
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     fun getContent(moduleId: String, callback: LoadContentCallback) {
-        handler.postDelayed({ callback.onContentReceived(jsonHelper.loadContent(moduleId)) }, SERVICE_LATENCY_IN_MILLIS)
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onContentReceived(jsonHelper.loadContent(moduleId))
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     interface LoadCoursesCallback {
