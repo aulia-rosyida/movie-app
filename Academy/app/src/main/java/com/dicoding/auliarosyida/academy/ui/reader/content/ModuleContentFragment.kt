@@ -43,14 +43,13 @@ class ModuleContentFragment : Fragment() {
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(requireActivity(), factory)[CourseReaderViewModel::class.java]
 
-            val module = viewModel.getSelectedModule() /**
-            Mengapa ModuleContentFragment bisa langsung tahu ModuleEntity?
-            Jika Anda lihat, tidak ada masukan courseId dan moduleId.
-            Hal ini bisa terjadi karena courseId sudah dimasukkan di CourseReaderActivity dan moduleId dimasukkan di ModuleListFragment.
-
-            Inilah yang disebut share ViewModel, membagikan ViewModel ke kelas lain.
-             */
-            populateWebView(module)
+            fragmentModuleContentBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getSelectedModule().observe(viewLifecycleOwner, { module ->
+                fragmentModuleContentBinding.progressBar.visibility = View.GONE
+                if (module != null) {
+                    populateWebView(module)
+                }
+            })
         }
     }
 

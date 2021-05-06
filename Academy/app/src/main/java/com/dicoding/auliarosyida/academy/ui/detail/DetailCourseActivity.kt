@@ -2,6 +2,7 @@ package com.dicoding.auliarosyida.academy.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -51,10 +52,17 @@ class DetailCourseActivity : AppCompatActivity() {
         if (extras != null) {
             val courseId = extras.getString(EXTRA_COURSE)
             if (courseId != null) {
+                activityDetailCourseBinding.progressBar.visibility = View.VISIBLE
+                activityDetailCourseBinding.content.visibility = View.INVISIBLE
+
                 viewModel.setSelectedCourse(courseId) //Dengan bantuan kelas ViewModel, courseId akan dipertahankan sampai Activity masuk ke state onDestroy.
-                val modules = viewModel.getModules() //generate dummy module
-                adapter.setModules(modules)
-                populateCourse(viewModel.getCourse())
+                viewModel.getModules().observe(this, { modules ->
+                    activityDetailCourseBinding.progressBar.visibility = View.GONE
+                    activityDetailCourseBinding.content.visibility = View.VISIBLE
+                    adapter.setModules(modules)
+                    adapter.notifyDataSetChanged()
+                })
+                viewModel.getCourse().observe(this, { course -> populateCourse(course) })
             }
         }
 
