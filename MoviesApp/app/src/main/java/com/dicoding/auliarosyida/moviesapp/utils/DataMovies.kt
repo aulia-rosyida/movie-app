@@ -2,6 +2,7 @@ package com.dicoding.auliarosyida.moviesapp.utils
 
 import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
+import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 
 object DataMovies {
 
@@ -16,16 +17,16 @@ object DataMovies {
             "m9",
             "m10")
 
-    private val moviePosters = intArrayOf(R.drawable.poster_how_to_train,
-        R.drawable.poster_ralph,
-        R.drawable.poster_robin_hood,
-        R.drawable.poster_spiderman,
-        R.drawable.poster_infinity_war,
-        R.drawable.poster_aquaman,
-        R.drawable.poster_alita,
-        R.drawable.poster_mortal_engines,
-        R.drawable.poster_cold_persuit,
-        R.drawable.poster_crimes)
+    private val moviePosters = arrayOf("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xvx4Yhf0DVH8G4LzNISpMfFBDy2.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/h5XilerWmJbM5kiBtWML8vvHbkH.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/AiRfixFcfTkNbn2A73qVJPlpkUo.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3cZn1k8x0bikrDKEy9ZKJ6Vdj30.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vEj13Ro7d2qjgeHI0eyqb7wMjvO.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xRWht48C2V8XNfzvPehyClOvDni.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gLhYg9NIvIPKVRTtvzCWnp1qJWG.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hXgmWPd1SuujRZ4QnKLzrj79PAw.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/u5QrKhSCGoFsB8aAvZZJ1b53k16.jpg")
 
     private val movieTitles = arrayOf("How to Train Your Dragon: The Hidden World",
         "Ralph Breaks the Internet",
@@ -94,12 +95,12 @@ object DataMovies {
         "1h 59m",
         "2h 14m")
 
-    fun generateMovies(): List<MovieEntity> {
+    fun generateMovies(): List<MovieResponse> {
 
-        val listMovieData = ArrayList<MovieEntity>()
+        val listMovieData = ArrayList<MovieResponse>()
 
         for (position in moviePosters.indices) {
-            val movie = MovieEntity()
+            val movie = MovieResponse()
             movie.id = movieId[position]
             movie.poster = moviePosters[position]
             movie.title = movieTitles[position]
@@ -126,16 +127,17 @@ object DataMovies {
             "t9",
             "t10")
 
-    private val tvShowPosters = intArrayOf(R.drawable.poster_naruto_shipudden,
-        R.drawable.poster_fairytail,
-        R.drawable.poster_the_simpson,
-        R.drawable.poster_the_umbrella,
-        R.drawable.poster_grey_anatomy,
-        R.drawable.poster_gotham,
-        R.drawable.poster_riverdale,
-        R.drawable.poster_arrow,
-        R.drawable.poster_doom_patrol,
-        R.drawable.poster_iron_fist)
+    private val tvShowPosters = arrayOf(
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zAYRe2bJxpWTVrwwmBc00VFkAf4.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/jsYTctFnK8ewomnUgcwhmsTkOum.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/k5UALlcA0EnviaCUn2wMjOWYiOO.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uYHdIs5O8tiU5p6MvUPd2jElOH6.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mgOZSS2FFIGtfVeac1buBw3Cx5w.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4XddcRDtnNjYmLRMYpbrhFxsbuq.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gskv297rlbyzLaTU1XZf8UBbxp0.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zfOb5lRt9SekVyl0gLfrXikQfxn.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/nVN7Dt0Xr78gnJepRsRLaLYklbY.jpg",
+        "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4l6KD9HhtD6nCDEfg10Lp6C6zah.jpg")
 
     private val tvShowTitles = arrayOf("Naruto Shippūden",
         "Fairy Tail",
@@ -225,10 +227,10 @@ object DataMovies {
         "English",
         "English")
 
-    fun generateTvShows(): List<MovieEntity> {
-        val listTvShowData = ArrayList<MovieEntity>()
+    fun generateTvShows(): List<MovieResponse> {
+        val listTvShowData = ArrayList<MovieResponse>()
         for (position in tvShowPosters.indices) {
-            val tvshow = MovieEntity()
+            val tvshow = MovieResponse()
             tvshow.id = tvShowId[position]
             tvshow.poster = tvShowPosters[position]
             tvshow.title = tvShowTitles[position]

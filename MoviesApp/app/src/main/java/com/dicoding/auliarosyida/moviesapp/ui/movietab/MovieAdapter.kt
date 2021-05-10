@@ -9,12 +9,13 @@ import com.bumptech.glide.request.RequestOptions
 import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.ItemsMovieBinding
 import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
+import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 import com.dicoding.auliarosyida.moviesapp.ui.detailpage.DetailActivity
 
 class MovieAdapter: RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
-    private var listMovies = ArrayList<MovieEntity>()
+    private var listMovies = ArrayList<MovieResponse>()
 
-    fun setMovies(movies: List<MovieEntity>?) {
+    fun setMovies(movies: List<MovieResponse>?) {
         if (movies == null) return
         this.listMovies.clear()
         this.listMovies.addAll(movies)
@@ -26,15 +27,15 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
-        val course = listMovies[position]
-        holder.bind(course)
+        val movie = listMovies[position]
+        holder.bind(movie)
     }
 
     override fun getItemCount(): Int = listMovies.size
 
 
     class CourseViewHolder(private val binding: ItemsMovieBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(movie: MovieEntity) {
+        fun bind(movie: MovieResponse) {
             with(binding) {
                 Glide.with(itemView.context)
                         .load(movie.poster)
