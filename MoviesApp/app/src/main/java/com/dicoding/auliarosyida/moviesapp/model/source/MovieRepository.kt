@@ -3,11 +3,17 @@ package com.dicoding.auliarosyida.moviesapp.model.source
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.RemoteMovieDataSource
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 
+/**
+ *  MovieRepository sebagai filter antara remote dan local
+ *  agar apa yang ada di View tidak banyak berubah
+ * */
 class MovieRepository private constructor(private val remoteMovieDataSource: RemoteMovieDataSource) : InterfaceMovieDataSource {
 
     companion object {
         @Volatile
         private var instance: MovieRepository? = null
+
+        // filter antara remote dan local
         fun getInstance(remoteData: RemoteMovieDataSource): MovieRepository =
             instance ?: synchronized(this) {
                 instance ?: MovieRepository(remoteData).apply { instance = this }

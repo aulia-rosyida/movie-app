@@ -9,6 +9,7 @@ import java.io.IOException
 
 class JsonResponseHelper(private val context: Context) {
 
+    //ubah file JSON menjadi String
     private fun parsingFileJsonToString(fileName: String): String? {
         return try {
             val `is` = context.assets.open(fileName)

@@ -5,6 +5,9 @@ import com.dicoding.auliarosyida.moviesapp.model.source.MovieRepository
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.RemoteMovieDataSource
 import com.dicoding.auliarosyida.moviesapp.utils.JsonResponseHelper
 
+/**
+ * Dengan menggunakan Injection, ViewModelFactory mampu menyediakan kebutuhan MovieRepository.
+ * */
 object RepoInjection {
     fun provideMovieRepository(context: Context): MovieRepository {
 
