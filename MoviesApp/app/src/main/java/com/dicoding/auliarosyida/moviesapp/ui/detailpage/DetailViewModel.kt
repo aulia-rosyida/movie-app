@@ -15,8 +15,8 @@ class DetailViewModel(private val movieRepository: MovieRepository): ViewModel()
         lateinit var entity: MovieResponse
 
         when(detailId.first()) {
-            'm' -> movieRepository.getDetailMovie(detailId)
-            't' -> movieRepository.getDetailTvShow(detailId)
+            'm' -> entity = movieRepository.getDetailMovie(detailId)
+            't' -> entity = movieRepository.getDetailTvShow(detailId)
         }
         return entity
     }

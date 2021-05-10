@@ -10,6 +10,7 @@ import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.ActivityDetailBinding
 import com.dicoding.auliarosyida.moviesapp.databinding.ContentDetailMovieBinding
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
+import com.dicoding.auliarosyida.moviesapp.viewmodel.VMAppFactory
 
 class DetailActivity : AppCompatActivity() {
 
@@ -29,7 +30,8 @@ class DetailActivity : AppCompatActivity() {
         setSupportActionBar(activityDetailMovieBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val detailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailViewModel::class.java]
+        val detailFactory = VMAppFactory.getInstance(this)
+        val detailViewModel = ViewModelProvider(this, detailFactory)[DetailViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {

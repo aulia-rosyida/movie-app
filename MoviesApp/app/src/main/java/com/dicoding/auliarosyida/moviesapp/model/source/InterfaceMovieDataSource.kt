@@ -7,7 +7,7 @@ interface InterfaceMovieDataSource {
 
     fun getAllTvShows(): List<MovieResponse>
 
-    fun getDetailMovie(courseId: String): MovieResponse
+    fun getDetailMovie(movieId: String): MovieResponse
 
-    fun getDetailTvShow(courseId: String): MovieResponse
+    fun getDetailTvShow(tvShowId: String): MovieResponse
 }

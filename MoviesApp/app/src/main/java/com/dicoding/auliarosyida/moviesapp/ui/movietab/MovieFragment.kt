@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.auliarosyida.moviesapp.databinding.MovieFragmentBinding
+import com.dicoding.auliarosyida.moviesapp.viewmodel.VMAppFactory
 
 class MovieFragment : Fragment() {
 
@@ -25,7 +26,9 @@ class MovieFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null) {
-            val movieViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
+            val movieFactory = VMAppFactory.getInstance(requireActivity())
+            val movieViewModel = ViewModelProvider(this, movieFactory)[MovieViewModel::class.java]
+
             val movies = movieViewModel.getMovies()
             val movieAdapter = MovieAdapter()
             movieAdapter.setMovies(movies)

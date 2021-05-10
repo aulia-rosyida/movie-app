@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.auliarosyida.moviesapp.databinding.TvShowFragmentBinding
 import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieAdapter
+import com.dicoding.auliarosyida.moviesapp.viewmodel.VMAppFactory
 
 class TvShowFragment : Fragment() {
 
@@ -25,7 +26,8 @@ class TvShowFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         if (activity != null) {
-            val tvShowViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
+            val tvShowFactory = VMAppFactory.getInstance(requireActivity())
+            val tvShowViewModel = ViewModelProvider(this, tvShowFactory)[TvShowViewModel::class.java]
             val tvShows = tvShowViewModel.getTvShows()
             val movieAdapter = MovieAdapter()
             movieAdapter.setMovies(tvShows)

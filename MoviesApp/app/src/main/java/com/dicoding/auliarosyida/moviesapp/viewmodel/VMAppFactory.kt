@@ -9,15 +9,15 @@ import com.dicoding.auliarosyida.moviesapp.ui.detailpage.DetailViewModel
 import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieViewModel
 import com.dicoding.auliarosyida.moviesapp.ui.tvshowtab.TvShowViewModel
 
-class ViewModelFactory private constructor(private val mMovieRepository: MovieRepository) : ViewModelProvider.NewInstanceFactory() {
+class VMAppFactory private constructor(private val mMovieRepository: MovieRepository) : ViewModelProvider.NewInstanceFactory() {
 
     companion object {
         @Volatile
-        private var instance: ViewModelFactory? = null
+        private var instance: VMAppFactory? = null
 
-    fun getInstance(context: Context): ViewModelFactory =
+    fun getInstance(context: Context): VMAppFactory =
         instance ?: synchronized(this) {
-            instance ?: ViewModelFactory(RepoInjection.provideMovieRepository(context)).apply {
+            instance ?: VMAppFactory(RepoInjection.provideMovieRepository(context)).apply {
                 instance = this
             }
         }
