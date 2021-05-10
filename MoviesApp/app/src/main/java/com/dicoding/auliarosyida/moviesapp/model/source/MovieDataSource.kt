@@ -7,5 +7,5 @@ interface MovieDataSource {
 
     fun getAllTvShows(): List<MovieEntity>
 
-    fun getDetail(courseId: String): MovieEntity
+    fun getDetailEntity(courseId: String): MovieEntity
 }
