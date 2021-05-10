@@ -1,9 +1,8 @@
 package com.dicoding.auliarosyida.moviesapp.ui.detailpage
 
 import androidx.lifecycle.ViewModel
-import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
 import com.dicoding.auliarosyida.moviesapp.model.source.MovieRepository
-import com.dicoding.auliarosyida.moviesapp.utils.DataMovies
+import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 
 class DetailViewModel(private val movieRepository: MovieRepository): ViewModel() {
     private lateinit var detailId: String
@@ -12,8 +11,8 @@ class DetailViewModel(private val movieRepository: MovieRepository): ViewModel()
         this.detailId = detailId
     }
 
-    fun getEntity(): MovieEntity {
-        lateinit var entity: MovieEntity
+    fun getEntity(): MovieResponse {
+        lateinit var entity: MovieResponse
 
         when(detailId.first()) {
             'm' -> movieRepository.getDetailMovie(detailId)

@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.ItemsMovieBinding
-import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 import com.dicoding.auliarosyida.moviesapp.ui.detailpage.DetailActivity
 

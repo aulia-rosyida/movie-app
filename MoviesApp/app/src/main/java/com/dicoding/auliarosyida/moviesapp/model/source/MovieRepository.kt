@@ -1,9 +1,7 @@
 package com.dicoding.auliarosyida.moviesapp.model.source
 
-import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.RemoteMovieDataSource
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
-import com.google.gson.Gson
 
 class MovieRepository private constructor(private val remoteMovieDataSource: RemoteMovieDataSource) : InterfaceMovieDataSource {
 

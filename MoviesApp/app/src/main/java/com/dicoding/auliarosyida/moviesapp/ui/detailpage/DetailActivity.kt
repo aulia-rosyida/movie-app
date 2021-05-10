@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.dicoding.auliarosyida.moviesapp.R
 import com.dicoding.auliarosyida.moviesapp.databinding.ActivityDetailBinding
 import com.dicoding.auliarosyida.moviesapp.databinding.ContentDetailMovieBinding
-import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
+import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 
 class DetailActivity : AppCompatActivity() {
 
@@ -42,7 +42,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun populateCard(entity: MovieEntity) {
+    private fun populateCard(entity: MovieResponse) {
         detailContentBinding.textYear.text = entity.releaseYear
         detailContentBinding.textDuration.text = entity.duration
         detailContentBinding.textTitle.text = entity.title

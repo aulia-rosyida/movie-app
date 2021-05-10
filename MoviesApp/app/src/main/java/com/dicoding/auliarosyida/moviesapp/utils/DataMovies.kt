@@ -1,7 +1,5 @@
 package com.dicoding.auliarosyida.moviesapp.utils
 
-import com.dicoding.auliarosyida.moviesapp.R
-import com.dicoding.auliarosyida.moviesapp.model.MovieEntity
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 
 object DataMovies {
