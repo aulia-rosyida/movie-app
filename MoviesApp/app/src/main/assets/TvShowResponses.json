@@ -1,0 +1,125 @@
+{
+  "tvShows": [
+    {
+      "id": "t1",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zAYRe2bJxpWTVrwwmBc00VFkAf4.jpg",
+      "title": "Naruto Shippūden",
+      "quote": "Naruto Shippūden",
+      "overview": "Naruto Shippuuden is the continuation of the original animated TV series Naruto.The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as He has amassed a few (more dangerous) enemies, in the likes of the shinobi organization; Akatsuki.",
+      "releaseYear": "2007",
+      "genre": "Animation, Action & Adventure, Sci-Fi & Fantasy",
+      "duration": "25m",
+      "status": "Ended",
+      "originalLanguage": "Japanese"
+    },
+    {
+      "id": "t2",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/jsYTctFnK8ewomnUgcwhmsTkOum.jpg",
+      "title": "Fairy Tail",
+      "quote": "Fairy Tail",
+      "overview": "Lucy is a 17-year-old girl, who wants to be a full-fledged mage. One day when visiting Harujion Town, she meets Natsu, a young man who gets sick easily by any type of transportation. But Natsu isn't just any ordinary kid, he's a member of one of the world's most infamous mage guilds: Fairy Tail.",
+      "releaseYear": "2009",
+      "genre": "Action & Adventure, Animation, Comedy, Sci-Fi & Fantasy, Mystery",
+      "duration": "25m",
+      "status": "Ended",
+      "originalLanguage": "Japanese"
+    },
+    {
+      "id": "t3",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/k5UALlcA0EnviaCUn2wMjOWYiOO.jpg",
+      "title": "The Simpsons",
+      "quote": "On your marks, get set, d'oh!",
+      "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+      "releaseYear": "1989",
+      "genre": "Family, Animation, Comedy",
+      "duration": "22m",
+      "status": "Returning Series",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "t4",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uYHdIs5O8tiU5p6MvUPd2jElOH6.jpg",
+      "title": "The Umbrella Academy",
+      "quote": "Super. Dysfunctional. Family.",
+      "overview": "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+      "releaseYear": "2019",
+      "genre": "Action & Adventure, Sci-Fi & Fantasy, Drama",
+      "duration": "55m",
+      "status": "Returning Series",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "t5",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mgOZSS2FFIGtfVeac1buBw3Cx5w.jpg",
+      "title": "Grey's Anatomy",
+      "quote": "The life you save may be your own.",
+      "overview": "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+      "releaseYear": "2005",
+      "genre": "Drama",
+      "duration": "43m",
+      "status": "Returning Series",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "t6",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4XddcRDtnNjYmLRMYpbrhFxsbuq.jpg",
+      "title": "Gotham",
+      "quote": "Before Batman, there was Gotham.",
+      "overview": "Everyone knows the name Commissioner Gordon. He is one of the crime world's greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon's story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world's most iconic villains? And what circumstances created them – the larger-than-life personas who would become Catwoman, The Penguin, The Riddler, Two-Face and The Joker?",
+      "releaseYear": "2014",
+      "genre": "Drama, Crime, Sci-Fi & Fantasy",
+      "duration": "43m",
+      "status": "Ended",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "t7",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gskv297rlbyzLaTU1XZf8UBbxp0.jpg",
+      "title": "Riverdale",
+      "quote": "Small town. Big secrets.",
+      "overview": "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
+      "releaseYear": "2017",
+      "genre": "Mystery, Drama, Crime",
+      "duration": "45m",
+      "status": "Returning Series",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "t8",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zfOb5lRt9SekVyl0gLfrXikQfxn.jpg",
+      "title": "Arrow",
+      "quote": "Heroes fall. Legends rise.",
+      "overview": "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
+      "releaseYear": "2012",
+      "genre": "Crime, Drama, Mystery, Action & Adventure",
+      "duration": "42m",
+      "status": "Ended",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "t9",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/nVN7Dt0Xr78gnJepRsRLaLYklbY.jpg",
+      "title": "Doom Patrol",
+      "quote": "Doom Patrol",
+      "overview": "The Doom Patrol’s members each suffered horrible accidents that gave them superhuman abilities — but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence — and to protect Earth from what they find.",
+      "releaseYear": "2019",
+      "genre": "Sci-Fi & Fantasy, Comedy, Drama",
+      "duration": "49m",
+      "status": "Returning Series",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "t10",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4l6KD9HhtD6nCDEfg10Lp6C6zah.jpg",
+      "title": "Marvel's Iron Fist",
+      "quote": "Marvel's Iron Fist",
+      "overview": "Danny Rand resurfaces 15 years after being presumed dead. Now, with the power of the Iron Fist, he seeks to reclaim his past and fulfill his destiny.",
+      "releaseYear": "2017",
+      "genre": "Action & Adventure, Drama, Sci-Fi & Fantasy",
+      "duration": "55m",
+      "status": "Canceled",
+      "originalLanguage": "English"
+    }
+  ]
+}
+

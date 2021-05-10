@@ -13,6 +13,7 @@ buildscript {
         recyclerViewVersion = '1.1.0'
         materialVersion = '1.2.1'
         glideVersion = '4.11.0'
+        gsonVersion = '2.8.6'
 
         //testing
         junitVersion = '4.13.1'

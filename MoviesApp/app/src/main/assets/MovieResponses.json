@@ -1,0 +1,124 @@
+{
+  "movies": [
+    {
+      "id": "m1",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xvx4Yhf0DVH8G4LzNISpMfFBDy2.jpg",
+      "title": "How to Train Your Dragon: The Hidden World",
+      "quote": "The friendship of a lifetime",
+      "overview": "As Hiccup fulfills his dream of creating a peaceful dragon utopia, Toothless’ discovery of an untamed, elusive mate draws the Night Fury away. When danger mounts at home and Hiccup’s reign as village chief is tested, both dragon and rider must make impossible decisions to save their kind.",
+      "releaseYear": "2019",
+      "genre": "Animation, Family, Adventure",
+      "duration": "1h 44m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m2",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/h5XilerWmJbM5kiBtWML8vvHbkH.jpg",
+      "title": "Ralph Breaks the Internet",
+      "quote": "Who Broke the Internet?",
+      "overview": "Video game bad guy Ralph and fellow misfit Vanellope von Schweetz must risk it all by traveling to the World Wide Web in search of a replacement part to save Vanellope's video game, Sugar Rush. In way over their heads, Ralph and Vanellope rely on the citizens of the internet — the netizens — to help navigate their way, including an entrepreneur named Yesss, who is the head algorithm and the heart and soul of trend-making site BuzzzTube.",
+      "releaseYear": "2018",
+      "genre": "Family, Animation, Comedy, Adventure",
+      "duration": "1h 52m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m3",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/AiRfixFcfTkNbn2A73qVJPlpkUo.jpg",
+      "title": "Robin Hood",
+      "quote": "The legend you know. The story you don't.",
+      "overview": "A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown.",
+      "releaseYear": "2018",
+      "genre": "Adventure, Action, Thriller",
+      "duration": "1h 56m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m4",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3cZn1k8x0bikrDKEy9ZKJ6Vdj30.jpg",
+      "title": "Spider-Man: Into the Spider-Verse",
+      "quote": "More Than One Wears the Mask",
+      "overview": "Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson \"Kingpin\" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.",
+      "releaseYear": "2018",
+      "genre": "Action, Adventure, Animation, Science Fiction, Comedy",
+      "duration": "1h 57m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m5",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+      "title": "Avengers: Infinity War",
+      "quote": "An entire universe. Once and for all.",
+      "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+      "releaseYear": "2018",
+      "genre": "Adventure, Action, Science Fiction",
+      "duration": "2h 29m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m6",
+      "poster": " https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vEj13Ro7d2qjgeHI0eyqb7wMjvO.jpg",
+      "title": "Aquaman",
+      "quote": "Home Is Calling",
+      "overview": "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne.",
+      "releaseYear": "2018",
+      "genre": "Action, Adventure, Fantasy",
+      "duration": "2h 23m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m7",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xRWht48C2V8XNfzvPehyClOvDni.jpg",
+      "title": "Alita: Battle Angel",
+      "quote": "An angel falls. A warrior rises.",
+      "overview": "When Alita awakens with no memory of who she is in a future world she does not recognize, she is taken in by Ido, a compassionate doctor who realizes that somewhere in this abandoned cyborg shell is the heart and soul of a young woman with an extraordinary past.",
+      "releaseYear": "2019",
+      "genre": "Action, Science Fiction, Adventure",
+      "duration": "2h 2m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m8",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gLhYg9NIvIPKVRTtvzCWnp1qJWG.jpg",
+      "title": "Mortal Engines",
+      "quote": "Some scars never heal",
+      "overview": "Many thousands of years in the future, Earth’s cities roam the globe on huge wheels, devouring each other in a struggle for ever diminishing resources. On one of these massive traction cities, the old London, Tom Natsworthy has an unexpected encounter with a mysterious young woman from the wastelands who will change the course of his life forever.",
+      "releaseYear": "2018",
+      "genre": "Adventure, Science Fiction",
+      "duration": "2h 9m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m9",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hXgmWPd1SuujRZ4QnKLzrj79PAw.jpg",
+      "title": "Cold Pursuit",
+      "quote": "Meet Nels Coxman. Citizen of the Year.",
+      "overview": "The quiet family life of Nels Coxman, a snowplow driver, is upended after his son's murder. Nels begins a vengeful hunt for Viking, the drug lord he holds responsible for the killing, eliminating Viking's associates one by one. As Nels draws closer to Viking, his actions bring even more unexpected and violent consequences, as he proves that revenge is all in the execution.",
+      "releaseYear": "2019",
+      "genre": "Action, Crime, Thriller",
+      "duration": "1h 59m",
+      "status": "Released",
+      "originalLanguage": "English"
+    },
+    {
+      "id": "m10",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/u5QrKhSCGoFsB8aAvZZJ1b53k16.jpg",
+      "title": "Fantastic Beasts: The Crimes of Grindelwald",
+      "quote": "Fate of One. Future of All.",
+      "overview": "Gellert Grindelwald has escaped imprisonment and has begun gathering followers to his cause—elevating wizards above all non-magical beings. The only one capable of putting a stop to him is the wizard he once called his closest friend, Albus Dumbledore. However, Dumbledore will need to seek help from the wizard who had thwarted Grindelwald once before, his former student Newt Scamander, who agrees to help, unaware of the dangers that lie ahead. Lines are drawn as love and loyalty are tested, even among the truest friends and family, in an increasingly divided wizarding world.",
+      "releaseYear": "2018",
+      "genre": "Adventure, Fantasy, Drama",
+      "duration": "2h 14m",
+      "status": "Released",
+      "originalLanguage": "English"
+    }
+  ]
+}
