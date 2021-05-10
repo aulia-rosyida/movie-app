@@ -8,7 +8,8 @@ import org.json.JSONObject
 import java.io.IOException
 
 class JsonResponseHelper(private val context: Context) {
-    private fun parsingFileToString(fileName: String): String? {
+
+    private fun parsingFileJsonToString(fileName: String): String? {
         return try {
             val `is` = context.assets.open(fileName)
             val buffer = ByteArray(`is`.available())
@@ -25,7 +26,7 @@ class JsonResponseHelper(private val context: Context) {
     fun loadMovies(): List<MovieResponse> {
         val listMovies = ArrayList<MovieResponse>()
         try {
-            val responseObject = JSONObject(parsingFileToString("MovieResponses.json").toString())
+            val responseObject = JSONObject(parsingFileJsonToString("MovieResponses.json").toString())
             val listArrayMovie = responseObject.getJSONArray("movies")
             val gson = Gson()
             for (i in 0 until listArrayMovie.length()) {
@@ -43,7 +44,7 @@ class JsonResponseHelper(private val context: Context) {
     fun loadTvShows(): List<MovieResponse> {
         val listTvShows = ArrayList<MovieResponse>()
         try {
-            val responseObject = JSONObject(parsingFileToString("TvShowResponses.json").toString())
+            val responseObject = JSONObject(parsingFileJsonToString("TvShowResponses.json").toString())
             val listArrayTvShow = responseObject.getJSONArray("tvShows")
             val gson = Gson()
             for (i in 0 until listArrayTvShow.length()) {
