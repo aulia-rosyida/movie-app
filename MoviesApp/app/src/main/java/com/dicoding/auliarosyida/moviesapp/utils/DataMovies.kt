@@ -114,7 +114,27 @@ object DataMovies {
             return listMovieData
     }
 
-    private val tvShowId = arrayOf("t1",
+    fun generateRemoteDummyMovies(): List<MovieResponse> {
+        val remoteMovies = ArrayList<MovieResponse>()
+        for (position in moviePosters.indices) {
+            val movie = MovieResponse()
+            movie.id = movieId[position]
+            movie.poster = moviePosters[position]
+            movie.title = movieTitles[position]
+            movie.quote = movieQuotes[position]
+            movie.overview = movieOverviews[position]
+            movie.releaseYear = movieReleaseYears[position]
+            movie.genre = movieGenres[position]
+            movie.duration = movieDurations[position]
+            movie.status = "Released"
+            movie.originalLanguage = "English"
+            remoteMovies.add(movie)
+        }
+        return remoteMovies
+    }
+
+
+        private val tvShowId = arrayOf("t1",
             "t2",
             "t3",
             "t4",
@@ -242,5 +262,24 @@ object DataMovies {
             listTvShowData.add(tvshow)
         }
         return listTvShowData
+    }
+
+    fun generateRemoteDummyTvShows(): List<MovieResponse> {
+        val remoteTvShows = ArrayList<MovieResponse>()
+        for (position in tvShowPosters.indices) {
+            val tvshow = MovieResponse()
+            tvshow.id = tvShowId[position]
+            tvshow.poster = tvShowPosters[position]
+            tvshow.title = tvShowTitles[position]
+            tvshow.quote = tvShowQuotes[position]
+            tvshow.overview = tvShowOverviews[position]
+            tvshow.releaseYear = tvShowReleaseYears[position]
+            tvshow.genre = tvShowGenres[position]
+            tvshow.duration = tvShowDurations[position]
+            tvshow.status = tvShowStatus[position]
+            tvshow.originalLanguage = tvShowOriginalLanguages[position]
+            remoteTvShows.add(tvshow)
+        }
+        return remoteTvShows
     }
 }
