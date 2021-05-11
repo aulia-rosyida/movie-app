@@ -2,6 +2,7 @@ package com.dicoding.auliarosyida.moviesapp.ui.detailpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -22,6 +23,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val activityDetailMovieBinding = ActivityDetailBinding.inflate(layoutInflater)
         detailContentBinding = activityDetailMovieBinding.detailContent
 
@@ -38,13 +40,19 @@ class DetailActivity : AppCompatActivity() {
 
             val tempId = extras.getString(extraMovie)
             if (tempId != null ) {
+
                 detailViewModel.setSelectedDetail(tempId)
-                populateCard(detailViewModel.getEntity())
+//                detailViewModel.getEntity().observe(this, { entity ->
+//                    detailContentBinding.progressBarDetailContent.visibility = View.VISIBLE
+//                })
+                detailViewModel.getEntity().observe(this, { detailEntity -> populateCard(detailEntity) })
+
             }
         }
     }
 
     private fun populateCard(entity: MovieResponse) {
+        detailContentBinding.progressBarDetailContent.visibility = View.GONE
         detailContentBinding.textYear.text = entity.releaseYear
         detailContentBinding.textDuration.text = entity.duration
         detailContentBinding.textTitle.text = entity.title

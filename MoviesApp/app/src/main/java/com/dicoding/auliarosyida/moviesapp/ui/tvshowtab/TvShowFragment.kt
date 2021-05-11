@@ -25,12 +25,19 @@ class TvShowFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         if (activity != null) {
             val tvShowFactory = VMAppFactory.getInstance(requireActivity())
             val tvShowViewModel = ViewModelProvider(this, tvShowFactory)[TvShowViewModel::class.java]
-            val tvShows = tvShowViewModel.getTvShows()
+
             val movieAdapter = MovieAdapter()
-            movieAdapter.setMovies(tvShows)
+            tvShowFragmentBinding.progressbarTvshow.visibility = View.VISIBLE
+
+            tvShowViewModel.getTvShows().observe(this, { tvShows ->
+                tvShowFragmentBinding.progressbarTvshow.visibility = View.GONE
+                movieAdapter.setMovies(tvShows)
+                movieAdapter.notifyDataSetChanged()
+            })
 
             with(tvShowFragmentBinding.rvTvshow){
                 layoutManager = LinearLayoutManager(context)

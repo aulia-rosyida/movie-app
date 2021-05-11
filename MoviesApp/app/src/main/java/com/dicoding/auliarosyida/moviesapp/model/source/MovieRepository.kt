@@ -1,6 +1,10 @@
 package com.dicoding.auliarosyida.moviesapp.model.source
 
+import android.graphics.Movie
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.RemoteMovieDataSource
+import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.RemoteMovieDataSource.LoadMoviesCallback
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 
 /**
@@ -20,41 +24,65 @@ class MovieRepository private constructor(private val remoteMovieDataSource: Rem
             }
     }
 
-    override fun getAllMovies(): List<MovieResponse> {
-        val movieResponses = remoteMovieDataSource.getAllMovies()
-        val movieList = ArrayList<MovieResponse>()
+    override fun getAllMovies(): LiveData<List<MovieResponse>> {
+        val movieResults = MutableLiveData<List<MovieResponse>>()
 
-        movieList.addAll(movieResponses)
-        return movieList
-    }
-
-    override fun getAllTvShows(): List<MovieResponse> {
-        val tvShowResponses = remoteMovieDataSource.getAllTvShows()
-        val tvShowList = ArrayList<MovieResponse>()
-
-        tvShowList.addAll(tvShowResponses)
-        return tvShowList
-    }
-
-    override fun getDetailMovie(movieId: String): MovieResponse {
-        val movieResponses = remoteMovieDataSource.getAllMovies()
-        lateinit var movie: MovieResponse
-        for (response in movieResponses) {
-            if (response.id == movieId) {
-                movie = response
+        remoteMovieDataSource.getAllMovies(object : LoadMoviesCallback {
+            override fun onAllMoviesReceived(movieResponses: List<MovieResponse>) {
+                val movieList = ArrayList<MovieResponse>()
+                movieList.addAll(movieResponses)
+                movieResults.postValue(movieList)
             }
-        }
-        return movie
+        })
+
+        return movieResults
     }
 
-    override fun getDetailTvShow(tvShowId: String): MovieResponse {
-        val tvShowResponses = remoteMovieDataSource.getAllTvShows()
-        lateinit var tvShow: MovieResponse
-        for (response in tvShowResponses) {
-            if (response.id == tvShowId) {
-                tvShow = response
+    override fun getAllTvShows(): LiveData<List<MovieResponse>> {
+        val tvShowResults = MutableLiveData<List<MovieResponse>>()
+
+        remoteMovieDataSource.getAllTvShows(object : LoadMoviesCallback {
+            override fun onAllMoviesReceived(movieResponses: List<MovieResponse>) {
+                val tvShowList = ArrayList<MovieResponse>()
+                tvShowList.addAll(movieResponses)
+                tvShowResults.postValue(tvShowList)
             }
-        }
-        return tvShow
+        })
+
+        return tvShowResults
+    }
+
+    override fun getDetailMovie(movieId: String): LiveData<MovieResponse> {
+        val detailMovieResult = MutableLiveData<MovieResponse>()
+
+        remoteMovieDataSource.getAllMovies(object : LoadMoviesCallback {
+            override fun onAllMoviesReceived(movieResponses: List<MovieResponse>) {
+                lateinit var aMovie: MovieResponse
+                for (response in movieResponses) {
+                    if (response.id == movieId) {
+                        aMovie = response
+                    }
+                }
+                detailMovieResult.postValue(aMovie)
+            }
+        })
+        return detailMovieResult
+    }
+
+    override fun getDetailTvShow(tvShowId: String): LiveData<MovieResponse> {
+        val detailTvShowResult = MutableLiveData<MovieResponse>()
+
+        remoteMovieDataSource.getAllTvShows(object : LoadMoviesCallback {
+            override fun onAllMoviesReceived(tvShowResponses: List<MovieResponse>) {
+                lateinit var aTvShow: MovieResponse
+                for (response in tvShowResponses) {
+                    if (response.id == tvShowId) {
+                        aTvShow = response
+                    }
+                }
+                detailTvShowResult.postValue(aTvShow)
+            }
+        })
+        return detailTvShowResult
     }
 }
