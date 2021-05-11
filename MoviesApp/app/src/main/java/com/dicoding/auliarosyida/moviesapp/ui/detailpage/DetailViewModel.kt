@@ -3,6 +3,7 @@ package com.dicoding.auliarosyida.moviesapp.ui.detailpage
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dicoding.auliarosyida.moviesapp.SingleEvent
 import com.dicoding.auliarosyida.moviesapp.model.source.MovieRepository
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 

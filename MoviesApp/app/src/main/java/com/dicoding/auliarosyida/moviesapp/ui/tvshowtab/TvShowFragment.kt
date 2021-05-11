@@ -1,23 +1,25 @@
 package com.dicoding.auliarosyida.moviesapp.ui.tvshowtab
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.auliarosyida.moviesapp.databinding.TvShowFragmentBinding
 import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieAdapter
 import com.dicoding.auliarosyida.moviesapp.viewmodel.VMAppFactory
+
 
 class TvShowFragment : Fragment() {
 
     private lateinit var tvShowFragmentBinding: TvShowFragmentBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         tvShowFragmentBinding = TvShowFragmentBinding.inflate(layoutInflater, container, false)
         return tvShowFragmentBinding.root
