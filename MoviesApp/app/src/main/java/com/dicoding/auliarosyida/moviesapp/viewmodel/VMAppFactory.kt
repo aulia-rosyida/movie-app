@@ -9,16 +9,12 @@ import com.dicoding.auliarosyida.moviesapp.ui.detailpage.DetailViewModel
 import com.dicoding.auliarosyida.moviesapp.ui.movietab.MovieViewModel
 import com.dicoding.auliarosyida.moviesapp.ui.tvshowtab.TvShowViewModel
 
-/**
- *  ViewModelFactory dibuat untuk menghubungkan ViewModel dengan AcademyRepository
- * */
 class VMAppFactory private constructor(private val mMovieRepository: MovieRepository) : ViewModelProvider.NewInstanceFactory() {
 
     companion object {
         @Volatile
         private var instance: VMAppFactory? = null
 
-        //singleton pattern : 1 instance di dalam JVM
         fun getInstance(context: Context): VMAppFactory =
             instance ?: synchronized(this) {
                 instance ?: VMAppFactory(RepoInjection.provideMovieRepository(context)).apply {
@@ -27,11 +23,6 @@ class VMAppFactory private constructor(private val mMovieRepository: MovieReposi
             }
     }
 
-    /**
-     * Setiap ada ViewModel dalam aplikasi dan membutuhkan MovieRepository,
-     * perlu mendaftarkan ViewModel tersebut di dalam ViewModelFactory.
-     * Jika tidak, ViewModelFactory tidak akan mengenali kelas ViewModel tersebut.
-     * */
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
