@@ -15,7 +15,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
     private var listMovies = ArrayList<MovieResponse>()
 
     fun setMovies(movies: List<MovieResponse>?) {
-        if (movies == null) return
+        if (movies.isNullOrEmpty()) return
         this.listMovies.clear()
         this.listMovies.addAll(movies)
     }
@@ -47,7 +47,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.CourseViewHolder>() {
                 tvItemQuotes.text = movie.quote
 
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailActivity::class.java)
+                    val intent = Intent(it.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.extraMovie, movie.id)
                     itemView.context.startActivity(intent)
                 }

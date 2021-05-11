@@ -7,6 +7,9 @@ import com.dicoding.auliarosyida.moviesapp.SingleEvent
 import com.dicoding.auliarosyida.moviesapp.model.source.MovieRepository
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 
+const val prefixIdMovie : Char = 'm'
+const val prefixIdTvShow : Char = 't'
+
 class DetailViewModel(private val movieRepository: MovieRepository): ViewModel() {
     private lateinit var detailId: String
 
@@ -18,8 +21,8 @@ class DetailViewModel(private val movieRepository: MovieRepository): ViewModel()
         lateinit var entity: LiveData<MovieResponse>
 
         when(detailId.first()) {
-            'm' -> entity = movieRepository.getDetailMovie(detailId)
-            't' -> entity = movieRepository.getDetailTvShow(detailId)
+            prefixIdMovie -> entity = movieRepository.getDetailMovie(detailId)
+            prefixIdTvShow -> entity = movieRepository.getDetailTvShow(detailId)
         }
         return entity
     }
