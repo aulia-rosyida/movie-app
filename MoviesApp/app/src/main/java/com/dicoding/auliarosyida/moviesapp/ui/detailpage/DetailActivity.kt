@@ -42,9 +42,6 @@ class DetailActivity : AppCompatActivity() {
             if (tempId != null ) {
 
                 detailViewModel.setSelectedDetail(tempId)
-//                detailViewModel.getEntity().observe(this, { entity ->
-//                    detailContentBinding.progressBarDetailContent.visibility = View.VISIBLE
-//                })
                 detailViewModel.getEntity().observe(this, { detailEntity -> populateCard(detailEntity) })
 
             }
@@ -52,7 +49,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun populateCard(entity: MovieResponse) {
-        detailContentBinding.progressBarDetailContent.visibility = View.GONE
+        detailContentBinding.progressbarDetailContent.visibility = View.GONE
         detailContentBinding.textYear.text = entity.releaseYear
         detailContentBinding.textDuration.text = entity.duration
         detailContentBinding.textTitle.text = entity.title
