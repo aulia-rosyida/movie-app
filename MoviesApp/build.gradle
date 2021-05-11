@@ -21,6 +21,8 @@ buildscript {
         androidTestVersion = '1.3.0'
         junitExtversion = '1.1.2'
         mockitoVersion = '3.6.0'
+        mockitoKotlinVersion = '2.2.0'
+        androidCoreTestVersion = '2.1.0'
 
         //instrumentation testing
         androidXTestVersion = '1.2.0'
