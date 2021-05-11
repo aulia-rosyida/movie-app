@@ -1,10 +1,15 @@
 package com.dicoding.auliarosyida.moviesapp.ui.detailpage
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.dicoding.auliarosyida.moviesapp.model.source.MovieRepository
+import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.response.MovieResponse
 import com.dicoding.auliarosyida.moviesapp.utils.DataMovies
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -21,8 +26,14 @@ class DetailViewModelTest {
     private val tempMovieId = dummyMovie.id
     private val tempTvShowId = dummyTvShow.id
 
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
+
     @Mock
     private lateinit var movieRepository: MovieRepository
+
+    @Mock
+    private lateinit var detailObserver: Observer<MovieResponse>
 
     @Before
     fun setUp() {
@@ -32,9 +43,11 @@ class DetailViewModelTest {
 
     @Test
     fun testGetMovieEntity() {
-        viewModel.setSelectedDetail(dummyMovie.id)
-        `when`(movieRepository.getDetailMovie(tempMovieId)).thenReturn(dummyMovie)
-        val movieEntity = viewModel.getEntity()
+        val movie = MutableLiveData<MovieResponse>()
+        movie.value = dummyMovie
+
+        `when`(movieRepository.getDetailMovie(tempMovieId)).thenReturn(movie)
+        val movieEntity = viewModel.getEntity().value as MovieResponse
         verify(movieRepository).getDetailMovie(tempMovieId)
 
         assertNotNull(movieEntity)
@@ -48,14 +61,19 @@ class DetailViewModelTest {
         assertEquals(dummyMovie.duration, movieEntity.duration)
         assertEquals(dummyMovie.status, movieEntity.status)
         assertEquals(dummyMovie.originalLanguage, movieEntity.originalLanguage)
+
+        viewModel.getEntity().observeForever(detailObserver)
+        verify(detailObserver).onChanged(dummyMovie)
     }
 
     @Test
     fun testGetTvShowEntity() {
+        viewModel.setSelectedDetail(tempTvShowId)
+        val tvShow = MutableLiveData<MovieResponse>()
+        tvShow.value = dummyTvShow
 
-        viewModel.setSelectedDetail(dummyTvShow.id)
-        `when`(movieRepository.getDetailTvShow(tempTvShowId)).thenReturn(dummyTvShow)
-        val tvShowEntity = viewModel.getEntity()
+        `when`(movieRepository.getDetailTvShow(tempTvShowId)).thenReturn(tvShow)
+        val tvShowEntity = viewModel.getEntity().value as MovieResponse
         verify(movieRepository).getDetailTvShow(tempTvShowId)
 
         assertNotNull(tvShowEntity)
@@ -69,5 +87,8 @@ class DetailViewModelTest {
         assertEquals(dummyTvShow.duration, tvShowEntity.duration)
         assertEquals(dummyTvShow.status, tvShowEntity.status)
         assertEquals(dummyTvShow.originalLanguage, tvShowEntity.originalLanguage)
+
+        viewModel.getEntity().observeForever(detailObserver)
+        verify(detailObserver).onChanged(dummyTvShow)
     }
 }
