@@ -1,6 +1,5 @@
 package com.dicoding.auliarosyida.moviesapp.model.source
 
-import android.graphics.Movie
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dicoding.auliarosyida.moviesapp.model.source.remotesource.RemoteMovieDataSource
@@ -15,6 +14,7 @@ class MovieRepository private constructor(private val remoteMovieDataSource: Rem
 
     companion object {
         @Volatile
+//        @JvmStatic
         private var instance: MovieRepository? = null
 
         // filter antara remote dan local
