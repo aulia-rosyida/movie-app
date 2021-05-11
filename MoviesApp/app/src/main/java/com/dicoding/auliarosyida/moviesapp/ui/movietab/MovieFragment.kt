@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.auliarosyida.moviesapp.databinding.MovieFragmentBinding
 import com.dicoding.auliarosyida.moviesapp.viewmodel.VMAppFactory
@@ -18,7 +17,7 @@ class MovieFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         movieFragmentBinding = MovieFragmentBinding.inflate(layoutInflater, container, false)
         return movieFragmentBinding.root
     }
