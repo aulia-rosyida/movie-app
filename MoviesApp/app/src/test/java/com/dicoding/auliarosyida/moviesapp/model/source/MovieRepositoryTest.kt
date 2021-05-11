@@ -46,7 +46,7 @@ class MovieRepositoryTest {
     fun testGetAllTvShows() {
         doAnswer { invocation ->
             (invocation.arguments[0] as RemoteMovieDataSource.LoadMoviesCallback)
-                .onAllMoviesReceived(movieResponses)
+                .onAllMoviesReceived(tvShowResponses)
             null
         }.`when`(remote).getAllTvShows(any())
 
@@ -64,7 +64,6 @@ class MovieRepositoryTest {
             null
         }.`when`(remote).getAllMovies(any())
 
-
         val resultMovie = LiveDataTestUtil.getValue(movieRepository.getDetailMovie(movieId))
         verify(remote).getAllMovies(any())
         assertNotNull(resultMovie)
@@ -74,8 +73,8 @@ class MovieRepositoryTest {
     @Test
     fun testGetDetailTvShow() {
         doAnswer { invocation ->
-            (invocation.arguments[1] as RemoteMovieDataSource.LoadMoviesCallback)
-                .onAllMoviesReceived(movieResponses)
+            (invocation.arguments[0] as RemoteMovieDataSource.LoadMoviesCallback)
+                    .onAllMoviesReceived(tvShowResponses)
             null
         }.`when`(remote).getAllTvShows(any())
 
