@@ -62,9 +62,9 @@ class FakeMovieRepository (private val remoteMovieDataSource: RemoteMovieDataSou
         val detailTvShowResult = MutableLiveData<MovieResponse>()
 
         remoteMovieDataSource.getAllTvShows(object : RemoteMovieDataSource.LoadMoviesCallback {
-            override fun onAllMoviesReceived(tvShowResponses: List<MovieResponse>) {
+            override fun onAllMoviesReceived(movieResponses: List<MovieResponse>) {
                 lateinit var aTvShow: MovieResponse
-                for (response in tvShowResponses) {
+                for (response in movieResponses) {
                     if (response.id == tvShowId) {
                         aTvShow = response
                     }
