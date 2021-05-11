@@ -29,7 +29,7 @@ class TvShowViewModelTest {
     private lateinit var movieRepository: MovieRepository
 
     @Mock
-    private lateinit var tvShowOserver: Observer<List<MovieResponse>>
+    private lateinit var tvShowObserver: Observer<List<MovieResponse>>
 
     @Before
     fun setUp() {
@@ -49,7 +49,7 @@ class TvShowViewModelTest {
         TestCase.assertNotNull(tvShowEntities)
         TestCase.assertEquals(10, tvShowEntities?.size)
 
-        viewModel.getTvShows().observeForever(tvShowOserver)
-        verify(tvShowOserver).onChanged(dummyTvShows)
+        viewModel.getTvShows().observeForever(tvShowObserver)
+        verify(tvShowObserver).onChanged(dummyTvShows)
     }
 }
