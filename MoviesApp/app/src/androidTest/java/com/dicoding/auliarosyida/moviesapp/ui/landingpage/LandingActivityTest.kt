@@ -21,14 +21,19 @@ class LandingActivityTest {
 
     @Test
     fun loadMovies() {
+        delayTwoSecond()
         onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovies.size))
     }
 
     @Test
     fun loadDetailMovie() {
+        delayTwoSecond()
+        delayTwoSecond()
         onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-
+        delayTwoSecond()
+        delayTwoSecond()
+        delayTwoSecond()
         onView(withId(R.id.text_title)).check(matches(isDisplayed()))
         onView(withId(R.id.text_title)).check(matches(withText(dummyMovies[0].title)))
 
@@ -51,16 +56,21 @@ class LandingActivityTest {
     @Test
     fun loadTvShows() {
         onView(withText(R.string.tvshow)).perform(click())
+        delayTwoSecond()
         onView(withId(R.id.rv_tvshow)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShows.size))
     }
 
     @Test
     fun loadDetailTvShow() {
+        delayTwoSecond()
         onView(withText(R.string.tvshow)).perform(click())
+        delayTwoSecond()
         onView(withId(R.id.rv_tvshow)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
 
+        delayTwoSecond()
+        delayTwoSecond()
         onView(withId(R.id.text_title)).check(matches(isDisplayed()))
         onView(withId(R.id.text_title)).check(matches(withText(dummyTvShows[0].title)))
 
@@ -78,5 +88,13 @@ class LandingActivityTest {
 
         onView(withId(R.id.text_duration)).check(matches(isDisplayed()))
         onView(withId(R.id.text_duration)).check(matches(withText(dummyTvShows[0].duration)))
+    }
+
+    private fun delayTwoSecond() {
+        try {
+            Thread.sleep(2000)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
     }
 }
